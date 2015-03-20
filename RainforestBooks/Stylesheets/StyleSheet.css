@@ -1,0 +1,58 @@
+﻿@font-face {
+    font-family: 'weblysleekuil';
+    src: url('../Site/weblysleekuil.ttf') format('truetype');
+}
+#Banner {
+    margin-top:10%;
+    margin-bottom:700px;
+    color:rgba(240,240,240,0.9);
+    font-size:9em;
+    text-align:center;
+    
+}
+hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(177, 165, 165,0), rgba(177, 165, 165,0.75), rgba(177, 165, 165,0));
+    background-image:    -moz-linear-gradient(left, rgba(177, 165, 165,0), rgba(177, 165, 165,0.75), rgba(177, 165, 165,0));
+    background-image:     -ms-linear-gradient(left, rgba(177, 165, 165,0), rgba(177, 165, 165,0.75), rgba(177, 165, 165,0));
+    background-image:      -o-linear-gradient(left, rgba(177, 165, 165,0), rgba(177, 165, 165,0.75), rgba(177, 165, 165,0));
+}
+
+#bg {
+    
+   background: url('../Images/amazon.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'WeblySleek UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.search {
+    max-width:100px;
+}
+.mynav {
+    margin-top:30px;
+}
+.transparancy {
+    background-color:rgba(240,240,240,0.9);
+}
+.bookdisplay {
+height:180px;
+width:100%;
+display: block;        
+}
+.thumbnail h3 {
+font-size:1.1em;
+}
+
+li {
+    
+}
+
+.navstyle {
+
+}
+.Kevinheader {
+
+}
