@@ -1,4 +1,5 @@
-﻿using RainforestBooks.Models;
+﻿using RainforestBooks.Functions;
+using RainforestBooks.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace RainforestBooks
             reg.Country = txtCountry.Text;
             reg.Phone = txtPhone.Text;
             reg.UserName = txtUserName.Text;
-            reg.Password = txtPassword.Text;
+            reg.Password = HashCode.PassHash(txtPassword.Text);
 
 
             var _db = new Context();

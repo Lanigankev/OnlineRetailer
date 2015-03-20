@@ -8,7 +8,7 @@ using System.Web;
 namespace RainforestBooks.Models
 {
     
-        [Table("tblWebCustomers")]
+        [Table("tblCustomers")]
         public class RegisterTest
         {
             [Key]
