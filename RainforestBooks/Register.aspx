@@ -30,12 +30,6 @@
     </div>
   </div>
         <div class="form-group">
-    <label for="txtAddress3" class="col-sm-2 control-label">Address3</label>
-      <div class="col-sm-10">
-      <asp:TextBox ID="txtAddress3" runat="server"></asp:TextBox>
-    </div>
-  </div>
-        <div class="form-group">
     <label for="txtCity" class="col-sm-2 control-label">City</label>
       <div class="col-sm-10">
       <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
@@ -45,6 +39,12 @@
     <label for="txtCountry" class="col-sm-2 control-label">Country</label>
       <div class="col-sm-10">
       <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
+    </div>
+  </div>
+        <div class="form-group">
+    <label for="txtEmail" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-10">
+      <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
     </div>
   </div>
         <div class="form-group">

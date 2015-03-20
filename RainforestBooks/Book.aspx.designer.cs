@@ -13,21 +13,21 @@ namespace RainforestBooks {
     public partial class Book {
         
         /// <summary>
-        /// b1 control.
+        /// ProductDisplay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button b1;
+        protected global::System.Web.UI.WebControls.ListView ProductDisplay;
         
         /// <summary>
-        /// Button1 control.
+        /// ListView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.ListView ListView2;
     }
 }
