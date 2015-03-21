@@ -21,7 +21,7 @@
                      <div class="col-sd-12 col-md-6">
   <h2 id="itemname"><%#: Item.ProductTitle %></h2>
   <h4>Description:</h4><p id="itemdescription"><%#:Item.Description %></p>
-        <h4>Rating:<span id="itemrating">THIS NEEDS TO BE DONE</span></h4>
+        <h4>Rating:<span id="itemrating"><% %></span></h4>
                  </div>
                      <div class="row">
             <div class="col-sd-12 col-md-5"></div>

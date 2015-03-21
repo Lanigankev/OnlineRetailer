@@ -311,6 +311,7 @@
     </Compile>
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\ProductReviewCustomer.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
