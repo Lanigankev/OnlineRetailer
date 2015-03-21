@@ -1,0 +1,150 @@
+Insert Into tblCustomers
+(FirstName,
+LastName,
+Address1,
+Address2,
+Email,
+City,
+Country,
+Phone,
+UserName,
+UserPassword)
+VALUES
+('Kevin',
+'Lanigan',
+'35 The Sycmores',
+'Dunmore Road',
+'kevin@gmail.com',
+'Waterford',
+'Ireland',
+'051-123456',
+'kevin',
+'kevin')
+
+Insert Into tblCustomers
+(FirstName,
+LastName,
+Address1,
+Address2,
+Email,
+City,
+Country,
+Phone,
+UserName,
+UserPassword)
+VALUES
+('Simon',
+'Melouah',
+'House',
+'Donnabay',
+'simon@gmail.com',
+'Dublin',
+'Ireland',
+'01-8734212',
+'simon',
+'simon')
+
+Insert Into tblCustomers
+(FirstName,
+LastName,
+Address1,
+Address2,
+Email,
+City,
+Country,
+Phone,
+UserName,
+UserPassword)
+VALUES
+('Jose',
+'Rios',
+'Calle Estrecho',
+'Cuzco',
+'miguel@gmail.com',
+'Madrid',
+'Spain',
+'34-1232312',
+'miguel',
+'miguel')
+
+
+INSERT INTO tblProducts
+(ProductId,
+ProductTitle,
+ProductImageRef,
+InStock,
+Cost,
+ProductDescription,
+Category,
+Genre
+)
+VALUES
+(1,
+'The Joy of Bootstrap',
+'bootstrap.jpg',
+5,
+24.99,
+'This is a really good book about bootstrap. Its the best book about bootstrap I''ve ever read. So you better read this book about bootstrap today. Some people call it the bible of web design. I actually worship it every day of the week',
+'Books',
+'Programming'
+)
+
+INSERT INTO tblProducts
+(ProductId,
+ProductTitle,
+ProductImageRef,
+InStock,
+Cost,
+ProductDescription,
+Category,
+Genre
+)
+VALUES
+(2,
+'The Gemini effect',
+'gemini.jpg',
+8,
+10.99,
+'Its a book about twins. Its not very good. I wouldnt give it the time of day or the steam off my piss.',
+'Books',
+'Fiction'
+)
+
+INSERT INTO tblReviews
+(CustomerId,
+ProductId,
+ReviewText,
+Stars
+)
+VALUES
+(1,
+1,
+'This is a really good book to learn bootstrap',
+4
+)
+
+INSERT INTO tblReviews
+(CustomerId,
+ProductId,
+ReviewText,
+Stars
+)
+VALUES
+(2,
+1,
+'This is a really awful book to learn bootstrap, what a terrible book',
+1
+)
+
+INSERT INTO tblReviews
+(CustomerId,
+ProductId,
+ReviewText,
+Stars
+)
+VALUES
+(2,
+2,
+'This is a really awful book about twins',
+1
+)
