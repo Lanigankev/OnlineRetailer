@@ -4,64 +4,33 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="panel panel-default transparancy">
     <div class="panel-body">
-         
+         <asp:ListView ID="ProductDisplay" ItemType="RainforestBooks.Models.Product"
+                 runat="server"
+                 SelectMethod ="Search">
+                 
+                 <ItemTemplate>
         <div class="row">
             <div class="col-sm-6 col-md-2">
                 <div class="thumbnail">
-                    <img src="Content/BookCovers/bootstrap.jpg"/>
+                    <img src="Content/BookCovers/<%#: Item.ProductImageRef %>"/>
                 </div>
              </div>
             <div class="col-sm-6 col-md-2">
                 
             </div>
             <div class="col-sm-6 col-md-6">
-                <h3>Bootstrap book</h3>
-                <p>This is a book which contains information on how to bootstrap, it is a very good book</p>
+                <h3><%#:Item.ProductTitle %></h3>
+                <p><%#:Item.Description %></p>
             </div>
             <div class="col-sm-6 col-md-2">
-                <p>Price: E24.99</p>
+                <p>Price:<%#:Item.Cost %></p>
                 <p>Review: 4 Stars</p>
             </div>
        </div>
         <hr/>
-        <div class="row">
-            <div class="col-sm-6 col-md-2">
-                <div class="thumbnail">
-                    <img src="Content/BookCovers/bootstrap.jpg"/>
-                </div>
-             </div>
-            <div class="col-sm-6 col-md-2">
-                
-            </div>
-            <div class="col-sm-6 col-md-6">
-                <h3>Bootstrap book</h3>
-                <p>This is a book which contains information on how to bootstrap, it is a very good book</p>
-            </div>
-            <div class="col-sm-6 col-md-2">
-                <p>Price: E24.99</p>
-                <p>Review: 4 Stars</p>
-            </div>
-       </div>
-        <hr/>
-        <div class="row">
-            <div class="col-sm-6 col-md-2">
-                <div class="thumbnail">
-                    <img src="Content/BookCovers/bootstrap.jpg"/>
-                </div>
-             </div>
-            <div class="col-sm-6 col-md-2">
-                
-            </div>
-            <div class="col-sm-6 col-md-6">
-                <h3>Bootstrap book</h3>
-                <p>This is a book which contains information on how to bootstrap, it is a very good book</p>
-            </div>
-            <div class="col-sm-6 col-md-2">
-                <p>Price: E24.99</p>
-                <p>Review: 4 Stars</p>
-            </div>
-       </div>
-        <hr/>
-    </div>
+                     </ItemTemplate>
+                     </asp:ListView>
+        
   </div>
+        </div>
 </asp:Content>
