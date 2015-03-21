@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RainforestBooks.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminView.master.cs" Inherits="RainforestBooks.AdminView" %>
 
 <!DOCTYPE html>
 
@@ -37,6 +37,7 @@
             <ul class="nav navbar-nav">
               <li><a href="Default.aspx">Home</a></li>
               <li><a href="Book.aspx">About</a></li>
+              <li><a href="#"</a>Add Product</li>
               <li><a href="#">Critics Choice</a></li>
               <li class="dropdown">
                 <a href="Search.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories<span class="caret"></span></a>

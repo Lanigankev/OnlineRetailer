@@ -6,7 +6,7 @@
     <div class="panel-body">
          <asp:ListView ID="ProductDisplay" ItemType="RainforestBooks.Models.Product"
                  runat="server"
-                 SelectMethod ="Search">
+                 SelectMethod ="SearchMethod">
                  
                  <ItemTemplate>
         <div class="row">

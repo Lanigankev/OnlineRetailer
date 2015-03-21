@@ -15,15 +15,16 @@ namespace RainforestBooks
         {
 
         }
-        public IQueryable<Product> GetProduct([QueryString("search")] string searchTerm)
+        public IQueryable<Product> SearchMethod([QueryString("search")] string searchTerm)
         {
             var db = new RainforestBooks.Models.Context();
             IQueryable<Product> query = from p in db.Products
                                         where p.ProductTitle.Contains(searchTerm)
-            if (searchTerm)
-            {
-                query = query.Where(product => product.ProductId == ProductId);
-            }
+                                        select p;
+            //if (searchTerm != string.Empty)
+            //{
+            //    query = query.Where(product => product.ProductId == ProductId);
+            //}
             return query;
         }
         
