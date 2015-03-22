@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="panel panel-default transparancy">
     <div class="panel-body">
+        <p>Results for</p>
          <asp:ListView ID="ProductDisplay" ItemType="RainforestBooks.Models.Product"
                  runat="server"
                  SelectMethod ="SearchMethod">
