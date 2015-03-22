@@ -1,35 +1,72 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AminView.Master" AutoEventWireup="true" CodeBehind="ManageProducts.aspx.cs" Inherits="RainforestBooks.ManageProducts" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminView.Master" AutoEventWireup="true" CodeBehind="ManageProducts.aspx.cs" Inherits="RainforestBooks.ManageProducts" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="Label1" runat="server" Text="Product Title:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-<br />
-<asp:Label ID="Label2" runat="server" Text="Product Image:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:TextBox ID="txtImage" runat="server"></asp:TextBox>
-<br />
-<asp:Label ID="Label3" runat="server" Text="Amount In Stock:"></asp:Label>
-&nbsp;&nbsp;&nbsp;
-<asp:TextBox ID="txtAmount" runat="server"></asp:TextBox>
-<br />
-<asp:Label ID="Label4" runat="server" Text="Cost:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:TextBox ID="txtCost" runat="server"></asp:TextBox>
-<br />
-<asp:Label ID="Label5" runat="server" Text="Description:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
-<br />
-<asp:Label ID="Label6" runat="server" Text="Category:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:TextBox ID="txtCategory" runat="server"></asp:TextBox>
-<br />
-<asp:Label ID="Label7" runat="server" Text="Genre:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:TextBox ID="txtGenre" runat="server"></asp:TextBox>
-<asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
-<p>
-</p>
+    
+    <div class="panel panel-default transparancy">
+    <div class="panel-body">
+        <div class="form-group">
+    <label for="rdoBook" class="col-sm-2 control-label">Product Type</label>
+      <div class="col-sm-10">
+          <asp:RadioButton ID="rdoBook" runat="server" Text="Book" GroupName="gender" OnCheckedChanged="RadioButton1_CheckedChanged" />
+          <asp:RadioButton ID="rdoAccessory" runat="server" Text="Book Accessory" GroupName="gender" OnCheckedChanged="rdoAccessory_CheckedChanged" />
+    </div>
+  </div>
+        <div class="form-group">
+    <label for="txtName" class="col-sm-2 control-label">Name</label>
+      <div class="col-sm-10">
+      <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+    </div>
+  </div>
+        <div class="form-group">
+    <label for="txtStock" class="col-sm-2 control-label">Amount in Stock</label>
+      <div class="col-sm-10">
+      <asp:TextBox ID="txtStock" runat="server"></asp:TextBox>
+    </div>
+  </div>
+        
+        <div class="form-group">
+            <label for="txtCost" class="col-sm-2 control-label">Cost</label>
+            <div class="col-sm-10">
+                <asp:TextBox ID="txtCost" runat="server"></asp:TextBox>
+            </div>
+  </div>
+        <div class="form-group">
+    <label for="txtDescription" class="col-sm-2 control-label">Description</label>
+      <div class="col-sm-10">
+      <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
+    </div>
+  </div>
+        <div class="form-group">
+    <label for="txtImage" class="col-sm-2 control-label">Image Upload</label>
+      <div class="col-sm-10">
+          <asp:HyperLink
+            ID="HyperLink1" runat="server">HyperLink</asp:HyperLink>
+        <asp:FileUpload ID="txtImageUpload" runat="server" />
+          <asp:Button ID="btnUpload" runat="server" Text="Upload Image" OnClick="Button1_Click" />
+    </div>
+  </div> 
+        <div class="form-group">
+    <label for="txtGenre" class="col-sm-2 control-label">Book Genre</label>
+      <div class="col-sm-10">
+          <asp:DropDownList ID="cmbGenre" runat="server">
+              <asp:ListItem>Action</asp:ListItem>
+              <asp:ListItem>Adventure</asp:ListItem>
+              <asp:ListItem>Romance</asp:ListItem>
+              <asp:ListItem>Science</asp:ListItem>
+          </asp:DropDownList>
+    </div>
+  </div>
+
+        
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+        
+    </div>
+  </div>
+        </div>
+    </div>
+        <!--container-->
 </asp:Content>
