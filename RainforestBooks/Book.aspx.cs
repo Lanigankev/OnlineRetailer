@@ -15,39 +15,29 @@ namespace RainforestBooks
         {
 
         }
-        public IQueryable<Product> GetProduct([QueryString("id")] int? ProductId)
+        public IQueryable<Product> GetProduct([QueryString("id")] int? QueryProductId)
         {
             var db = new RainforestBooks.Models.Context();
             IQueryable<Product> query = db.Products;
-            if (ProductId.HasValue && ProductId > 0)
+
+            if (QueryProductId.HasValue && QueryProductId > 0)
             {
-                query = query.Where(product => product.ProductId == ProductId);
+                query = query.Where(product => product.ProductId == QueryProductId);
             }
             return query;
         }
-        //public List<ProductReviewCustomer> GetProduct([QueryString("id")] int? ProductId)
-        //{
-        //    var db = new RainforestBooks.Models.Context();
-        //    List<ProductReviewCustomer> query = (from p in db.Products
-        //                                             join r in db.Reviews on 
-        //                                                 p.ProductId equals r.ProductId
-        //                                       select new ProductReviewCustomer{thisProduct=p,thisReview=r}).ToList();
-            
-        //    double average = 0; 
-            
-        //    for(int i = 1;i<=query.Count; i++)
-        //    {
-        //        average += query[i].thisReview.Stars;
-        //        average = average / i;
+        public IQueryable<Product> GetProductReview([QueryString("id")] int? QueryProductId)
+        {
+            var db = new RainforestBooks.Models.Context();
+            IQueryable<Product> query = db.Products;
+            if (QueryProductId.HasValue && QueryProductId > 0)
 
-        //    }
-            
-        //    if (ProductId.HasValue && ProductId > 0)
-        //    {
-        //        query = query.Where(productReview => productReview.thisProduct.ProductId == ProductId).ToList();
-        //    }
-        //    return query;
-        //}
+            {
+                query = query.Where(product => product.ProductId == QueryProductId);
+            }
+            return query;
+        }
+
         public IQueryable<Review> GetReview([QueryString("id")] int? ProductId)
         {
             var db = new RainforestBooks.Models.Context();

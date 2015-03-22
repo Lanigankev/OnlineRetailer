@@ -31,7 +31,7 @@ namespace RainforestBooks
             customer.Country = txtCountry.Text;
             customer.Phone = txtPhone.Text;
             customer.UserName = txtUserName.Text;
-            customer.Password = HashCode.PassHash(txtPassword.Text);
+            customer.UserPassword = HashCode.PassHash(txtPassword.Text);
 
 
             var _db = new Context();
