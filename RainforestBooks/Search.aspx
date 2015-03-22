@@ -20,7 +20,7 @@
             </div>
             <div class="col-sm-6 col-md-6">
                 <h3><%#:Item.ProductTitle %></h3>
-                <p><%#:Item.Description %></p>
+                <p><%#:Item.ProductDescription %></p>
             </div>
             <div class="col-sm-6 col-md-2">
                 <p>Price:<%#:Item.Cost %></p>

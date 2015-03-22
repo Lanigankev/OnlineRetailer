@@ -16,7 +16,7 @@ namespace RainforestBooks.Models
         public string ProductImageRef { get; set; }
         public int InStock { get;set; }
         public decimal Cost { get; set; }
-        public string Description { get; set; }
+        public string ProductDescription { get; set; }
         public string Category { get; set; }
         public string Genre { get; set; }
     }

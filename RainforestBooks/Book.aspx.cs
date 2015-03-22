@@ -25,7 +25,7 @@ namespace RainforestBooks
             }
             return query;
         }
-        public IQueryable<ProductReviewCustomer> GetProductReview([QueryString("id")] int? QueryProductId)
+        public IQueryable<Product> GetProductReview([QueryString("id")] int? QueryProductId)
         {
             var db = new RainforestBooks.Models.Context();
             IQueryable<Product> query = db.Products;
@@ -35,55 +35,55 @@ namespace RainforestBooks
             }
             return query;
         }
-        public List<ProductReviewCustomer> GetProductDetails([QueryString("id")] int? QueryProductId)
-        {
-            var db = new RainforestBooks.Models.Context();
-            //var query = from p in db.Products
-            //            join r in db.Reviews
-            //            on p.ProductId equals r.ProductId
-            //            group p by p.ProductId into grp
-            //            select new { p.ProductId, p.ProductTitle, p.ProductImageRef,
-            //                        p.Genre, p.Cost, p.Category, p.Description, r.Stars };
+        //public List<ProductReviewCustomer> GetProductDetails([QueryString("id")] int? QueryProductId)
+        //{
+        //    var db = new RainforestBooks.Models.Context();
+        //    //var query = from p in db.Products
+        //    //            join r in db.Reviews
+        //    //            on p.ProductId equals r.ProductId
+        //    //            group p by p.ProductId into grp
+        //    //            select new { p.ProductId, p.ProductTitle, p.ProductImageRef,
+        //    //                        p.Genre, p.Cost, p.Category, p.Description, r.Stars };
 
-            var query = (from p in db.Products
-                         join r in db.Reviews
-                         on p.ProductId equals r.ProductId
-                         group new {p,r} by new {p.ProductId} into pr
-                         select new 
-                         {
-                         ProdId = pr.Key.ProductId,
+        //    var query = (from p in db.Products
+        //                 join r in db.Reviews
+        //                 on p.ProductId equals r.ProductId
+        //                 group new {p,r} by new {p.ProductId} into pr
+        //                 select new 
+        //                 {
+        //                 ProdId = pr.Key.ProductId,
                          
 
-                         }
+        //                 }
 
-            double total = 0;
-            List<ProductReviewCustomer> ProductReviewList = new List<ProductReviewCustomer>();
+        //    double total = 0;
+        //    List<ProductReviewCustomer> ProductReviewList = new List<ProductReviewCustomer>();
 
-            foreach (var item in query)
-            {
-                ProductReviewCustomer prod = new ProductReviewCustomer();
-                prod.ProductId = item.ProductId;
-                prod.ProductTitle = item.ProductTitle;
-                prod.ProductImageRef = item.ProductImageRef;
-                prod.Genre = item.Genre;
-                prod.Cost = item.Cost;
-                prod.Category = item.Category;
-                prod.Description = item.Description;
-                //average + item.Stars;
-                ProductReviewList.Add(prod);
-                total += item.Stars;
-            }
+        //    foreach (var item in query)
+        //    {
+        //        ProductReviewCustomer prod = new ProductReviewCustomer();
+        //        prod.ProductId = item.ProductId;
+        //        prod.ProductTitle = item.ProductTitle;
+        //        prod.ProductImageRef = item.ProductImageRef;
+        //        prod.Genre = item.Genre;
+        //        prod.Cost = item.Cost;
+        //        prod.Category = item.Category;
+        //        prod.Description = item.Description;
+        //        //average + item.Stars;
+        //        ProductReviewList.Add(prod);
+        //        total += item.Stars;
+        //    }
 
-            double avg = total / query.Count();
+        //    double avg = total / query.Count();
 
 
 
-            if (QueryProductId.HasValue && QueryProductId > 0)
-            {
-                query = query.Where(product => product.ProductId == QueryProductId);
-            }
-            return ProductReviewList;
-        }
+        //    if (QueryProductId.HasValue && QueryProductId > 0)
+        //    {
+        //        query = query.Where(product => product.ProductId == QueryProductId);
+        //    }
+        //    return ProductReviewList;
+        //}
         public IQueryable<Review> GetReview([QueryString("id")] int? ProductId)
         {
             var db = new RainforestBooks.Models.Context();
