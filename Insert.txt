@@ -69,7 +69,7 @@ VALUES
 
 
 INSERT INTO tblProducts
-(ProductId,
+(
 ProductTitle,
 ProductImageRef,
 InStock,
@@ -79,7 +79,7 @@ Category,
 Genre
 )
 VALUES
-(1,
+(
 'The Joy of Bootstrap',
 'bootstrap.jpg',
 5,
@@ -90,7 +90,7 @@ VALUES
 )
 
 INSERT INTO tblProducts
-(ProductId,
+(
 ProductTitle,
 ProductImageRef,
 InStock,
@@ -100,7 +100,7 @@ Category,
 Genre
 )
 VALUES
-(2,
+(
 'The Gemini effect',
 'gemini.jpg',
 8,

@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RainforestBooks.SiteMaster" %>
-
 <!DOCTYPE html>
 
 <html lang ="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -7,9 +6,7 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href ="Stylesheets/reset.css" rel="stylesheet"/>
-    <!--<link href="Stylesheets/bootstrap-3.3.2-dist/css/bootstrap-theme.css" rel="stylesheet" />-->
-    <!--<link href="Stylesheets/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" rel="stylesheet" />-->
+    <link href ="Stylesheets/reset.css" rel="stylesheet"/> <!--<link href="Stylesheets/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" rel="stylesheet" />-->
    <!-- <link href="Stylesheets/bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet" />-->
     <!--<link href="Stylesheets/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet" />-->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"/>
@@ -73,7 +70,7 @@
              <div class="panel-body">
                  
                  <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
-                 <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+                 <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
                  
             </div>
         </div>

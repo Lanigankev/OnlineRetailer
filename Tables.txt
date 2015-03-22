@@ -31,7 +31,7 @@ CONSTRAINT fk_CustomerId FOREIGN KEY (CustomerId) REFERENCES tblCustomers(Custom
 )
 
 CREATE TABLE tblProducts
-(ProductId INT PRIMARY KEY NOT NULL,
+(ProductId INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
 ProductTitle NVARCHAR(100) NOT NULL,
 ProductImageRef NVARCHAR (100) NOT NULL,
 InStock INT NOT NULL,

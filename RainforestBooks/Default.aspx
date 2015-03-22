@@ -24,7 +24,7 @@
       </div>
       <div class="col-sm-6 col-md-2">
         <div class="thumbnail">
-            <a href="Book.aspx?ProductId=123"><img src="Content/BookCovers/gemini.jpg" /></a>
+            <a href="Book.aspx?id=1"><img src="Content/BookCovers/gemini.jpg" /></a>
           <div class="caption">
             <h3>Thumbnail label</h3>
              </div>

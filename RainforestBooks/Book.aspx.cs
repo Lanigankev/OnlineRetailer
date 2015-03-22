@@ -15,75 +15,39 @@ namespace RainforestBooks
         {
 
         }
-        public IQueryable<Product> GetProduct([QueryString("id")] int? QueryProductId)
+        public IQueryable<Product> GetProduct([QueryString("id")] int? ProductId)
         {
             var db = new RainforestBooks.Models.Context();
             IQueryable<Product> query = db.Products;
-            if (QueryProductId.HasValue && QueryProductId > 0)
+            if (ProductId.HasValue && ProductId > 0)
             {
-                query = query.Where(product => product.ProductId == QueryProductId);
+                query = query.Where(product => product.ProductId == ProductId);
             }
             return query;
         }
-        public IQueryable<ProductReviewCustomer> GetProductReview([QueryString("id")] int? QueryProductId)
-        {
-            var db = new RainforestBooks.Models.Context();
-            IQueryable<Product> query = db.Products;
-            if (QueryProductId.HasValue && QueryProductId > 0)
-            {
-                query = query.Where(product => product.ProductId == QueryProductId);
-            }
-            return query;
-        }
-        public List<ProductReviewCustomer> GetProductDetails([QueryString("id")] int? QueryProductId)
-        {
-            var db = new RainforestBooks.Models.Context();
-            //var query = from p in db.Products
-            //            join r in db.Reviews
-            //            on p.ProductId equals r.ProductId
-            //            group p by p.ProductId into grp
-            //            select new { p.ProductId, p.ProductTitle, p.ProductImageRef,
-            //                        p.Genre, p.Cost, p.Category, p.Description, r.Stars };
+        //public List<ProductReviewCustomer> GetProduct([QueryString("id")] int? ProductId)
+        //{
+        //    var db = new RainforestBooks.Models.Context();
+        //    List<ProductReviewCustomer> query = (from p in db.Products
+        //                                             join r in db.Reviews on 
+        //                                                 p.ProductId equals r.ProductId
+        //                                       select new ProductReviewCustomer{thisProduct=p,thisReview=r}).ToList();
+            
+        //    double average = 0; 
+            
+        //    for(int i = 1;i<=query.Count; i++)
+        //    {
+        //        average += query[i].thisReview.Stars;
+        //        average = average / i;
 
-            var query = (from p in db.Products
-                         join r in db.Reviews
-                         on p.ProductId equals r.ProductId
-                         group new {p,r} by new {p.ProductId} into pr
-                         select new 
-                         {
-                         ProdId = pr.Key.ProductId,
-                         
-
-                         }
-
-            double total = 0;
-            List<ProductReviewCustomer> ProductReviewList = new List<ProductReviewCustomer>();
-
-            foreach (var item in query)
-            {
-                ProductReviewCustomer prod = new ProductReviewCustomer();
-                prod.ProductId = item.ProductId;
-                prod.ProductTitle = item.ProductTitle;
-                prod.ProductImageRef = item.ProductImageRef;
-                prod.Genre = item.Genre;
-                prod.Cost = item.Cost;
-                prod.Category = item.Category;
-                prod.Description = item.Description;
-                //average + item.Stars;
-                ProductReviewList.Add(prod);
-                total += item.Stars;
-            }
-
-            double avg = total / query.Count();
-
-
-
-            if (QueryProductId.HasValue && QueryProductId > 0)
-            {
-                query = query.Where(product => product.ProductId == QueryProductId);
-            }
-            return ProductReviewList;
-        }
+        //    }
+            
+        //    if (ProductId.HasValue && ProductId > 0)
+        //    {
+        //        query = query.Where(productReview => productReview.thisProduct.ProductId == ProductId).ToList();
+        //    }
+        //    return query;
+        //}
         public IQueryable<Review> GetReview([QueryString("id")] int? ProductId)
         {
             var db = new RainforestBooks.Models.Context();
@@ -94,5 +58,6 @@ namespace RainforestBooks
             }
             return query;
         }
+        
     }
 }
