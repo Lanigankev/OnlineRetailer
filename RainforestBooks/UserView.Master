@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RainforestBooks.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserView.master.cs" Inherits="RainforestBooks.UserView" %>
 <!DOCTYPE html>
 
 <html lang ="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -57,8 +57,8 @@
               
 
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="Register.aspx">Register</a></li>
-              <li><a href="Login.aspx">Login</a></li>    
+              <li><a href="Register.aspx">My Shopping Cart   <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+              <li><a href="Login.aspx">My Details</a></li>    
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -70,6 +70,7 @@
                  
                  <asp:TextBox ID="txtSearch" runat="server" Width="243px"></asp:TextBox>
                  <asp:Button class="searchButton" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="71px" />
+                 
                  
             </div>
         </div>

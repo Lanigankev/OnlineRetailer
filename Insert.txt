@@ -69,7 +69,7 @@ VALUES
 
 
 INSERT INTO tblProducts
-(ProductId,
+(
 ProductTitle,
 ProductImageRef,
 InStock,
@@ -79,7 +79,7 @@ Category,
 Genre
 )
 VALUES
-(1,
+(
 'The Joy of Bootstrap',
 'bootstrap.jpg',
 5,
@@ -90,7 +90,7 @@ VALUES
 )
 
 INSERT INTO tblProducts
-(ProductId,
+(
 ProductTitle,
 ProductImageRef,
 InStock,
@@ -100,7 +100,7 @@ Category,
 Genre
 )
 VALUES
-(2,
+(
 'The Gemini effect',
 'gemini.jpg',
 8,
@@ -147,4 +147,52 @@ VALUES
 2,
 'This is a really awful book about twins',
 1
+)
+
+INSERT INTO tblProducts
+(
+ProductTitle,
+ProductImageRef,
+InStock,
+Cost,
+ProductDescription,
+Category,
+Genre
+)
+VALUES
+(
+'Inspiralized',
+'inspiralized.jpg',
+20,
+9.99,
+'This is cooking book about cooking spirals. It also has plenty of anecdotes about Gordan Ramsays penchant for water polo',
+'Books',
+'Cooking'
+),
+(
+'Moody Bitches',
+'moodybitches.jpg',
+3,
+5.99,
+'This isn''t a vey good book. But it has a lot of profanity in it. So at the end of the day. What more could you want',
+'Books',
+'Fiction'
+),
+(
+'Younger',
+'younger.jpg',
+20,
+12.99,
+'Neither you nor this book are getting any younger. Buy this now and sort your life out. Buy a sports car',
+'Books',
+'How-To'
+),
+(
+'The Grand Design',
+'grand.jpg',
+15,
+12.99,
+'Feeling bored? Why not learn about astrophysics? Impress your friends with the knowledge of supernovas and black holes. You''ll be popular amongst the dinner party crowds',
+'Books',
+'Non-Fiction'
 )

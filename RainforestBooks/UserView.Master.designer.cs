@@ -10,7 +10,7 @@
 namespace RainforestBooks {
     
     
-    public partial class SiteMaster {
+    public partial class UserView {
         
         /// <summary>
         /// head control.
