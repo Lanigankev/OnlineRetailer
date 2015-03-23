@@ -21,7 +21,8 @@ namespace RainforestBooks
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtReview.Visible = false;
+            btnSubmitReview.Visible = false;
         }
         public IQueryable<Product> GetProduct([QueryString("id")] int? QueryProductId)
         {
@@ -55,6 +56,32 @@ namespace RainforestBooks
                 query = query.Where(review => review.ProductId == ProductId);
             }
             return query;
+        }
+
+        protected void btnSubmitReview_Click(object sender, EventArgs e)
+        {
+            using (var db = new Context())
+            {
+                string reviewText;
+                reviewText = txtReview.Text;
+                Review review = new Review();
+                review.CustomerId = (int)Session["UserView"];
+                review.ProductId = int.Parse(Request.QueryString["id"]);
+                review.ReviewText = reviewText;
+                review.Stars = 3;
+
+                db.Reviews.Add(review);
+                db.SaveChanges();
+            }
+            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            txtReview.Visible = true;
+            btnSubmitReview.Visible = true;
+            //txtReview.Text = (int)Session["UserView"] + Environment.NewLine + int.Parse(Request.QueryString["id"]);
+           
         }
         
     }

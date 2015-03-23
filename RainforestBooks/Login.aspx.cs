@@ -52,7 +52,7 @@ namespace RainforestBooks
            if (isValidLogin)
            {
                Session["UserView"] = customer.CustomerId;
-               
+               //Response.Redirect("About.apsx");
            }
            else
            {
