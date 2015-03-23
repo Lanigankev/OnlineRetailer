@@ -21,24 +21,30 @@
         <div class="row">
             <div class="col-sm-6 col-md-2">
                 <div class="thumbnail">
-                    <a href="Book.aspx?id=<%#:Item.ProductId %>"><img src="Content/BookCovers/<%#: Item.ProductImageRef %>"/></a>
+                    <a href="Book.aspx?id=<%#:Item.ProductId %>"><img class="searchImg" src="Content/BookCovers/<%#: Item.ProductImageRef %>"/></a>
                 </div>
              </div>
             <div class="col-sm-6 col-md-2">
                 
             </div>
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-6 col-md-8">
+                
+                    
                 <h3><%#:Item.ProductTitle %></h3>
+                        <div class ="row">
+                            <div class="col-sm-4 col-md-7">
                 <p><%#:Item.ProductDescription %></p>
             </div>
             
-            
-            <div class="col-sm-6 col-md-2">
+            <div class="col-sm-1 col-md-2"></div>
+            <div class="col-sm-4 col-md-3">
                 <p>Price: &euro;<%#:Item.Cost %></p>
                 <p>Review: 4 Stars</p>
                 <asp:Button CssClass="btn btn-default" ID="btnAddToCart" runat="server" Text="Add to Cart" />
             </div>
-       </div>
+                </div><!--/inner row-->
+                </div>
+       </div><!--/outer row-->
         <hr/>
                      </ItemTemplate>
                      </asp:ListView>

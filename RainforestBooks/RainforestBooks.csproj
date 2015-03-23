@@ -202,6 +202,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\amazon.jpg" />
+    <Content Include="Images\Regency-Media-Replication-Team.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="ManageProducts.aspx" />
     <Content Include="packages.config" />
