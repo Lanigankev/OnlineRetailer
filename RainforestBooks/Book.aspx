@@ -26,10 +26,10 @@
                      <div class="row">
             <div class="col-sd-12 col-md-5"></div>
             <div class="col-sd-12 col-md-2">
-            <asp:Button id="b1" Text="Add to Cart" runat="server" CssClass="btn-primary" />
+            <asp:Button id="b1" Text="Add to Cart" runat="server"  CssClass="btn-primary" />
                 </div>
             <div class="col-sd-12 col-md-2">
-            <asp:Button id="Button1" Text="Add Review" runat="server" CssClass="btn-primary" />
+            <asp:Button id="Button1" Text="Add Review" runat="server"  CssClass="btn-primary" />
                 </div>
                          </div>
                  </ItemTemplate>
