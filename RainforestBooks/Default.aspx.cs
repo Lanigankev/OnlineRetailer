@@ -29,34 +29,40 @@ namespace RainforestBooks
             var db = new RainforestBooks.Models.Context();
 
             List<Product> query = db.Products.ToList();
-            List<Product> returnSix = new List<Product>();
+            List<Product> returnSix = new List<Product>(6);
 
             Random rnd = new Random();
-            int val;
-            //int[] values = RandomSix(query);
-            for (int i = 0; i < 6; i++)
+
+            int limit = query.Count - 6; ;
+            int startPoint = rnd.Next(0, limit);
+
+            for (int i = startPoint; i < 6; i++)
             {
-                val = rnd.Next(0, query.Count - 1);
-                returnSix.Add(query[val]);
+                returnSix.Add(query[i]);
             }
-            return returnSix;
+
+                return returnSix;
         }
-        //public int[] RandomSix(List<Product> list)
+        //public List<int> RandomSix(List<Product> list)
         //{
-        //    List<int> returnVals = new List<int>();
-        //    int val;
         //    Random rdm = new Random();
-        //    do
+
+        //    int limit;
+        //    int val=0;
+        //    List<int> returnVals = new List<int>();
+
+        //    limit = list.Count()-1;
+
+        //    while (val != 6)
         //    {
-        //        val = rdm.Next(0, list.Count - 1);
+        //        val = rdm.Next(0, limit);
         //        if (!returnVals.Contains(val))
         //        {
         //            returnVals.Add(val);
         //        }
         //    }
-        //    while
-        //    (returnVals.Count != 6);
-        //    return returnVals.ToArray();
+            
+        //    return returnVals;
         //}
     }
 }

@@ -4,7 +4,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="panel panel-default transparancy">
     <div class="panel-body">
-        <p>Results for</p>
+        <div class="row">
+            <div class="col-sm-2 col-md-3"></div>
+            <div class="col-sm-2 col-md-4">
+        <h2>Results for : 
+            "<asp:Label ID="lblSearchTerm" runat="server" Text="..."></asp:Label>"
+        </h2>
+                </div>
+            </div>
+        <hr />
          <asp:ListView ID="ProductDisplay" ItemType="RainforestBooks.Models.Product"
                  runat="server"
                  SelectMethod ="SearchMethod">
@@ -13,7 +21,7 @@
         <div class="row">
             <div class="col-sm-6 col-md-2">
                 <div class="thumbnail">
-                    <img src="Content/BookCovers/<%#: Item.ProductImageRef %>"/>
+                    <a href="Book.aspx?id=<%#:Item.ProductId %>"><img src="Content/BookCovers/<%#: Item.ProductImageRef %>"/></a>
                 </div>
              </div>
             <div class="col-sm-6 col-md-2">
@@ -23,9 +31,12 @@
                 <h3><%#:Item.ProductTitle %></h3>
                 <p><%#:Item.ProductDescription %></p>
             </div>
+            
+            
             <div class="col-sm-6 col-md-2">
-                <p>Price:<%#:Item.Cost %></p>
+                <p>Price: &euro;<%#:Item.Cost %></p>
                 <p>Review: 4 Stars</p>
+                <asp:Button CssClass="btn btn-default" ID="btnAddToCart" runat="server" Text="Add to Cart" />
             </div>
        </div>
         <hr/>

@@ -74,7 +74,7 @@ namespace RainforestBooks
         {
             string search = txtSearch.Text;
 
-            Server.Transfer("Search.aspx?search=" + search);
+            Response.Redirect("Search.aspx?search=" + search);
         }
     }
 }

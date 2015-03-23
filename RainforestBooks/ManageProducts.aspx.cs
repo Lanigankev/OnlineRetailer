@@ -25,6 +25,7 @@ namespace RainforestBooks
             type = "Book";
             //rdoAccessory.Checked = false;
             //cmbGenre.Enabled = true;
+            cmbGenre.Visible = true;
         }
 
         protected void rdoAccessory_CheckedChanged(object sender, EventArgs e)
@@ -32,6 +33,7 @@ namespace RainforestBooks
             type = "Accessory";
             //rdoBook.Checked = false;
             //cmbGenre.Enabled = false;
+            cmbGenre.Visible = false;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
