@@ -72,9 +72,11 @@ namespace RainforestBooks
         {
             if (txtImageUpload.HasFile)
             {
-                txtImageUpload.SaveAs(Request.MapPath("Content/BookCovers/") + txtImageUpload.FileName);
-                HyperLink1.Text = txtImageUpload.FileName;
-                HyperLink1.NavigateUrl = Request.MapPath("Content/BookCovers/") + txtImageUpload.FileName;
+                string fileName = (Guid.NewGuid().ToString() + "-" + txtImageUpload.FileName);
+                
+                txtImageUpload.SaveAs(Server.MapPath("~/Content/BookCovers/" + fileName));
+                HyperLink1.Text = fileName;
+                //HyperLink1.NavigateUrl = Request.MapPath("Content/BookCovers/") + txtImageUpload.FileName;
             }
         }
         }

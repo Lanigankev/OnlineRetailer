@@ -9,7 +9,7 @@
          <div class="row">
              <asp:ListView ID="ProductDisplay" ItemType="RainforestBooks.Models.Product"
                  runat="server"
-                 SelectMethod ="GetProduct">
+                 SelectMethod ="GetProduct" OnSelectedIndexChanged="ProductDisplay_SelectedIndexChanged">
                  
                  <ItemTemplate>
                      <div class="col-sd-12 col-md-4">
