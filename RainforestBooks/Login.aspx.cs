@@ -17,7 +17,7 @@ namespace RainforestBooks
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            bool isValidLogin;
+            bool isValidLogin = false;
             
             using (var db = new Context())
             { 
@@ -52,13 +52,19 @@ namespace RainforestBooks
            if (isValidLogin)
            {
                Session["UserView"] = customer.CustomerId;
-               //Response.Redirect("About.apsx");
+               //Responsse.Redirect("About.apsx");
+               //Session["ShoppingCart"] = new ShoppingCart();
+               //ShoppingCart x = (ShoppingCart)Session["ShoppingCart"];
            }
            else
            {
                Response.Write("<script language='javascript'>alert('Invalid Login');</script>");
            }
 
+            }
+            if (isValidLogin)
+            {
+                Response.Redirect("About.apsx");
             }
             
         }

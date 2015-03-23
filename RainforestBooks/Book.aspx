@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-1">
-            <asp:Button id="btnAddToCart" Text="Add to Cart" runat="server" CssClass="btn-primary" />
+            <asp:Button id="btnAddToCart" Text="Add to Cart" runat="server" CssClass="btn-primary" OnClick="btnAddToCart_Click" />
                 </div>
             <div class="col-md-1">
             <asp:Button id="btnAddReview" Text="Add Review" runat="server" CssClass="btn-primary" OnClick="Button1_Click" />
