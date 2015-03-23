@@ -83,6 +83,21 @@ namespace RainforestBooks
             //txtReview.Text = (int)Session["UserView"] + Environment.NewLine + int.Parse(Request.QueryString["id"]);
            
         }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            ShoppingCart myCart = new ShoppingCart();
+            if (Session["ShoppingCart"] == null)
+            { //You have to populate a product from the database then add it to myCart.CartItems
+            //myCart.CartItems.Add()
+            }
+            else
+            {
+            myCart = (ShoppingCart)Session["ShoppingCart"];
+                //myCart.CartItems.Add();
+                Session["ShoppingCart"] =myCart;
+            }
+        }
         
     }
 }
