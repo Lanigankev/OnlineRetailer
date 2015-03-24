@@ -8,7 +8,7 @@ namespace RainforestBooks.Models
     public class ShoppingCart
     {
         public List<Product> CartItems { get; set; }
-        //public Customer RelevantCustomer { get; set; }
+        
 
     }
 }

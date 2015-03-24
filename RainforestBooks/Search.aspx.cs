@@ -28,6 +28,7 @@ namespace RainforestBooks
             var db = new RainforestBooks.Models.Context();
             IQueryable<Product> query = from p in db.Products
                                         where p.ProductTitle.Contains(searchTerm)
+                                        || p.Genre.Contains(searchTerm)
                                         select p;
             //if (searchTerm != string.Empty)
             //{

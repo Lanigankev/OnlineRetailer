@@ -52,9 +52,9 @@ namespace RainforestBooks
            if (isValidLogin)
            {
                Session["UserView"] = customer.CustomerId;
-               //Responsse.Redirect("About.apsx");
-               //Session["ShoppingCart"] = new ShoppingCart();
-               //ShoppingCart x = (ShoppingCart)Session["ShoppingCart"];
+               
+               Response.Redirect("About.aspx", true);   
+               
            }
            else
            {
@@ -62,10 +62,7 @@ namespace RainforestBooks
            }
 
             }
-            if (isValidLogin)
-            {
-                Response.Redirect("About.apsx");
-            }
+            
             
         }
     }

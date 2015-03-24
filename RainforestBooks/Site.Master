@@ -57,6 +57,7 @@
               
 
             <ul class="nav navbar-nav navbar-right">
+                <li><div class="searchDiv"><asp:TextBox CssClass="searchTextBox" ID="txtSearch" runat="server" Width="200px"></asp:TextBox><asp:Button CssClass="btn btn-default searchButton" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="70px" /></div></li>
               <li><a href="Register.aspx">Register</a></li>
               <li><a href="Login.aspx">Login</a></li>    
             </ul>
@@ -68,8 +69,8 @@
         <div class="panel panel-default transparancy">
              <div class="panel-body">
                  
-                 <asp:TextBox ID="txtSearch" runat="server" Width="243px"></asp:TextBox>
-                 <asp:Button class="searchButton" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="71px" />
+                 
+                
                  
             </div>
         </div>
