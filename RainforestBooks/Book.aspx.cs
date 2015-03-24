@@ -11,6 +11,8 @@ namespace RainforestBooks
 {
     public partial class Book : System.Web.UI.Page
     {
+        private int ProductId { get; set; }
+
         protected void Page_PreInit(object sender, EventArgs e)
         {
             if (Session["UserView"] != null)
@@ -23,18 +25,23 @@ namespace RainforestBooks
         {
             txtReview.Visible = false;
             btnSubmitReview.Visible = false;
+            int productId;
+            bool isValid = int.TryParse(Request.QueryString["id"], out productId);
+            ProductId = productId;
         }
-        public IQueryable<Product> GetProduct([QueryString("id")] int? QueryProductId)
+
+        public Product GetProduct([QueryString("id")] int? QueryProductId)
         {
             var db = new RainforestBooks.Models.Context();
-            IQueryable<Product> query = db.Products;
+            Product prod = null;
 
             if (QueryProductId.HasValue && QueryProductId > 0)
             {
-                query = query.Where(product => product.ProductId == QueryProductId);
+                prod = (from p in db.Products where p.ProductId == QueryProductId select p).FirstOrDefault();
             }
-            return query;
+            return prod;
         }
+
         public IQueryable<Product> GetProductReview([QueryString("id")] int? QueryProductId)
         {
             var db = new RainforestBooks.Models.Context();
@@ -86,17 +93,7 @@ namespace RainforestBooks
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            ShoppingCart myCart = new ShoppingCart();
-            if (Session["ShoppingCart"] == null)
-            { //You have to populate a product from the database then add it to myCart.CartItems
-            //myCart.CartItems.Add()
-            }
-            else
-            {
-            myCart = (ShoppingCart)Session["ShoppingCart"];
-                //myCart.CartItems.Add();
-                Session["ShoppingCart"] =myCart;
-            }
+            ShoppingCart.Instance.AddItem(ProductId);
         }
         
     }

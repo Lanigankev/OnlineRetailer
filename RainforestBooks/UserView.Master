@@ -57,7 +57,7 @@
               
 
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="Register.aspx">My Shopping Cart   <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+              <li><a href="MyCart.aspx">My Shopping Cart   <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
               <li><a href="Login.aspx">My Details</a></li>    
             </ul>
           </div><!--/.nav-collapse -->
