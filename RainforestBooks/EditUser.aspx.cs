@@ -9,51 +9,30 @@ using System.Web.UI.WebControls;
 
 namespace RainforestBooks
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class EditUser : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtUserName_TextChanged(object sender, EventArgs e)
         {
 
         }
 
        
-        private void ClearForm()
+        private void EditDetails()
         {
-            txtFName.Text = string.Empty;
-            txtLName.Text = string.Empty;
-            txtAddress1.Text = string.Empty;
-            txtAddress2.Text = string.Empty;
-            txtEmail.Text = string.Empty;
-            txtCity.Text = string.Empty;
-            txtCountry.Text=string.Empty;
-            txtPhone.Text = string.Empty;
-            txtUserName.Text = string.Empty;
-            txtPassword.Text = string.Empty;
-        }
-
-        protected void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-            
-            
-        }
-
-        protected void txtUserName_TextChanged(object sender, EventArgs e)
-        {   
-            
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            RegisterUser();
-        }
-
-        private void RegisterUser()
-    {
-        var _db = new Context();
+            var _db = new Context();
 
             bool fNameEmpty = true;
             bool lNameEmpty = true;
-            bool emailEmpty = true;
             bool phoneEmpty = true;
             //bool isPlaceHolderEmail = true;
             //bool isPlaceHolderPhone = true;
@@ -61,44 +40,24 @@ namespace RainforestBooks
             bool address2Empty = true;
             bool cityEmpty = true;
             bool countryEmpty = true;
-            bool userNameEmpty = true;
             bool passwordEmpty = true;
-            bool contactExists = _db.Customers.Any(customer => customer.Email == txtEmail.Text);
-            bool usernameExists = _db.Customers.Any(customer => customer.UserName == txtUserName.Text);
+           
 
 
             Validation val = new Validation();
 
             fNameEmpty = string.IsNullOrEmpty(txtFName.Text);
             lNameEmpty = string.IsNullOrEmpty(txtLName.Text);
-            emailEmpty = string.IsNullOrEmpty(txtEmail.Text);
-            emailEmpty = val.EmailValidator(txtEmail.Text) == null ? false : true;
             phoneEmpty = string.IsNullOrEmpty(txtPhone.Text);
             phoneEmpty = val.PhoneValidator(txtPhone.Text) == null ? false : true;
             address1Empty = string.IsNullOrEmpty(txtAddress1.Text);
             address2Empty = string.IsNullOrEmpty(txtAddress2.Text);
             cityEmpty = string.IsNullOrEmpty(txtCity.Text);
             countryEmpty = string.IsNullOrEmpty(txtCountry.Text);
-            userNameEmpty = string.IsNullOrEmpty(txtUserName.Text);
             passwordEmpty = string.IsNullOrEmpty(txtPassword.Text);
-            
-            
-            if (fNameEmpty)
-            {
-                lblFName.Visible = true;
-            }
-            else
-            {
-                lblFName.Visible = false;
-            }
-            if (lNameEmpty)
-            {
-                lblLName.Visible = true;
-            }
-            else
-            {
-                lblLName.Visible = false;
-            }
+
+
+         
             if (address1Empty)
             {
                 lblAddress1.Visible = true;
@@ -131,22 +90,7 @@ namespace RainforestBooks
             {
                 lblCountry.Visible = false;
             }
-            if (emailEmpty)
-            {
-                lblEmail.Text = "** Email must not be empty and in correct format";
-                lblEmail.Visible = true;
-               
-            }
-            else if (contactExists)
-            {
-                lblEmail.Text = "** This email already exists";
-                lblEmail.Visible = true;
-
-            }
-            else
-            {
-                lblEmail.Visible = false;
-            }
+            
             if (phoneEmpty)
             {
                 lblPhone.Text = val.PhoneValidator(txtPhone.Text);
@@ -156,22 +100,7 @@ namespace RainforestBooks
             {
                 lblPhone.Visible = false;
             }
-            if (userNameEmpty)
-            {
-                lblUserName.Text = "** User name must not be empty";
-                lblUserName.Visible = true;
-               
-            }
-            else if (usernameExists)
-            {
-                lblUserName.Text = "** This username already exists";
-                lblUserName.Visible = true;
-
-            }
-            else
-            {
-                lblUserName.Visible = false;
-            }
+            
             if (passwordEmpty)
             {
                 lblPassword.Visible = true;
@@ -188,10 +117,13 @@ namespace RainforestBooks
             {
                 lblConfirm.Visible = false;
             }
-            if (!fNameEmpty && !lNameEmpty && !address1Empty && !address2Empty && !cityEmpty && !countryEmpty && !emailEmpty && !phoneEmpty && !userNameEmpty && !passwordEmpty && !contactExists && !usernameExists && txtConfirm.Text == txtPassword.Text)
+            if (!fNameEmpty && !lNameEmpty && !address1Empty && !address2Empty && !cityEmpty && !countryEmpty && !phoneEmpty && !passwordEmpty && txtConfirm.Text == txtPassword.Text)
             {
-                Customer customer = new Customer();
+                Customer customer = (from cus in _db.Customers
+                                     where cus.FirstName == txtFName.Text
+                                     select cus).First();
 
+                
                 customer.FirstName = txtFName.Text;
                 customer.LastName = txtLName.Text;
                 customer.Address1 = txtAddress1.Text;
@@ -203,13 +135,75 @@ namespace RainforestBooks
                 customer.UserName = txtUserName.Text;
                 customer.UserPassword = HashCode.PassHash(txtPassword.Text);
 
-
-
-                _db.Customers.Add(customer);
+                //_db.Customers.Add(customer);
                 _db.SaveChanges();
 
                 ClearForm();
             }
-    }
+            else
+            {
+                lblPassword.Visible = true;
+                lblPassword.Text = "Sex";
+            }
+        }
+        private void ClearForm()
+        {
+            txtFName.Text = string.Empty;
+            txtLName.Text = string.Empty;
+            txtAddress1.Text = string.Empty;
+            txtAddress2.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtCity.Text = string.Empty;
+            txtCountry.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtUserName.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+        }
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            var _db = new Context();
+
+            txtFName.Text = (from customers in _db.Customers
+                             where customers.UserName == txtUserName.Text
+                             select customers.FirstName).Single();
+
+            txtLName.Text = (from customers in _db.Customers
+                             where customers.UserName == txtUserName.Text
+                             select customers.LastName).Single();
+
+            txtAddress1.Text = (from customers in _db.Customers
+                                where customers.UserName == txtUserName.Text
+                                select customers.Address1).Single();
+
+            txtAddress2.Text = (from customers in _db.Customers
+                                where customers.UserName == txtUserName.Text
+                                select customers.Address2).Single();
+
+            txtCity.Text = (from customers in _db.Customers
+                            where customers.UserName == txtUserName.Text
+                            select customers.City).Single();
+
+            txtCountry.Text = (from customers in _db.Customers
+                               where customers.UserName == txtUserName.Text
+                               select customers.Country).Single();
+
+            txtEmail.Text = (from customers in _db.Customers
+                             where customers.UserName == txtUserName.Text
+                             select customers.Email).Single();
+
+            txtPhone.Text = (from customers in _db.Customers
+                             where customers.UserName == txtUserName.Text
+                             select customers.Phone).Single();
+
+            txtPassword.Text = (from customers in _db.Customers
+                                where customers.UserName == txtUserName.Text
+                                select customers.UserPassword).Single();
+        }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            EditDetails();
+        }
+
     }
 }

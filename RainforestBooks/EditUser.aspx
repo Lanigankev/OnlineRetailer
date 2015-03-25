@@ -1,22 +1,21 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="RainforestBooks.Register" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditUser.aspx.cs" Inherits="RainforestBooks.EditUser" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <div class="panel panel-default transparancy">
+<div class="panel panel-default transparancy">
     <div class="panel-body">
         <div class="form-group">
     <label for="txtFName" class="col-sm-2 control-label">First Name</label>
+  
       <div class="col-sm-10">
       <asp:TextBox ID="txtFName" runat="server"></asp:TextBox>
-          <asp:Label ID="lblFName" runat="server" Visible="False">** First name must not be empty</asp:Label>
     </div>
   </div>
         <div class="form-group">
     <label for="txtLName" class="col-sm-2 control-label">Last Name</label>
+  
       <div class="col-sm-10">
       <asp:TextBox ID="txtLName" runat="server"></asp:TextBox>
-          <asp:Label ID="lblLName" runat="server" Text="** Last name must not be empty" Visible="False"></asp:Label>
     </div>
   </div>
         <div class="form-group">
@@ -51,7 +50,6 @@
     <label for="txtEmail" class="col-sm-2 control-label">Email</label>
       <div class="col-sm-10">
       <asp:TextBox ID="txtEmail" runat="server" OnTextChanged="txtEmail_TextChanged"></asp:TextBox>
-          <asp:Label ID="lblEmail" runat="server" Visible="False"></asp:Label>
     </div>
   </div>
         <div class="form-group">
@@ -84,11 +82,14 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-        <asp:Button ID="btnRegister" runat="server" OnClick="Button1_Click" Text="Register" />
+        <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" />
+        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
         
     </div>
   </div>
         </div>
         </div>
         <!--container-->
+
+
 </asp:Content>
