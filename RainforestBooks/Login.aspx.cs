@@ -1,10 +1,12 @@
 ﻿using RainforestBooks.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Serialization;
 
 namespace RainforestBooks
 {
@@ -52,7 +54,26 @@ namespace RainforestBooks
            if (isValidLogin)
            {
                Session["UserView"] = customer.CustomerId;
-               
+               if(Request.Cookies["cartRef"]!= null)
+               {
+                   string xmlString;
+                   string reference = Request.Cookies["CartRef"].Value;
+                   
+
+                       xmlString = (from xml in db.StoredCarts
+                                   where xml.Reference == reference
+                                   select xml.XmlList).FirstOrDefault();
+                       
+                   if (xmlString != null)
+                       {
+                           XmlSerializer serializer = new XmlSerializer(typeof(List<CartItem>));
+                           TextReader reader = new StringReader(xmlString);
+                           List<CartItem> storedList = (List<CartItem>)serializer.Deserialize(reader);
+
+
+                           ShoppingCart.Instance.CartItems = storedList;
+                       }
+               }
                Response.Redirect("About.aspx", true);   
                
            }

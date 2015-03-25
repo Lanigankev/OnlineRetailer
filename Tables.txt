@@ -22,10 +22,10 @@ UserPassword NVARCHAR (250) NOT NULL
 
 CREATE TABLE tblOrders
 (OrderId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-OrderPlacedDate DATETIME NOT NULL,
+OrderPlacedDate DATETIME2 NOT NULL,
 TotalNoItems INT NOT NULL,
 AdditionalInfo NVARCHAR (500),
-DateOrderComplete DATETIME,
+DateOrderCompleted DATETIME2,
 CustomerId INT NOT NULL,
 CONSTRAINT fk_CustomerId FOREIGN KEY (CustomerId) REFERENCES tblCustomers(CustomerId)
 )
@@ -69,4 +69,12 @@ AdminName NVARCHAR (70) NOT NULL,
 AdminPassword NVARCHAR (250) NOT NULL,
 )
 Go
+
+CREATE TABLE tblStoredCarts
+(Reference NVARCHAR(100) NOT NULL PRIMARY KEY,
+CustomerId INT NOT NULL,
+XmlList NVARCHAR (2000)
+FOREIGN KEY (CustomerId) REFERENCES tblCustomers(CustomerId)
+)
+
 
