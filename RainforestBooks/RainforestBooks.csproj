@@ -351,6 +351,8 @@
     <Compile Include="Models\ProductReviewCustomer.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\StoredCart.cs" />
+    <Compile Include="Models\UserSession.cs" />
     <Compile Include="MyCart.aspx.cs">
       <DependentUpon>MyCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -2,10 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace RainforestBooks
 {
@@ -158,5 +163,55 @@ namespace RainforestBooks
 
 
             }
+
+        protected void btnStoreCart_Click(object sender, EventArgs e)
+        {
+            string reference;
+            XmlSerializer xmlSerialize = new XmlSerializer(typeof(List<CartItem>));
+            List<CartItem> list = ShoppingCart.Instance.CartItems;
+            StringWriter sw = new StringWriter(new StringBuilder());
+
+            xmlSerialize.Serialize(sw, list);
+
+            if (Request.Cookies["CartRef"].Value == null)
+            {
+                
+                
+                
+
+                
+
+                reference = Guid.NewGuid().ToString();
+                StoredCart storedCart = new StoredCart();
+                storedCart.CustomerId = (int)Session["UserView"];
+                storedCart.Reference = reference;
+                storedCart.XmlList = sw.ToString();
+
+                using (var db = new Context())
+                {
+                    db.StoredCarts.Add(storedCart);
+                    db.SaveChanges();
+                }
+
+                HttpCookie cartRef = new HttpCookie("CartRef");
+                cartRef.Value = reference;
+                cartRef.HttpOnly = true;
+                cartRef.Expires = DateTime.Now.AddMonths(1);
+                HttpContext.Current.Response.Cookies.Add(cartRef);
+            }
+            else
+            { 
+                using(var db = new Context())
+                {
+                  StoredCart cart = (from storedCart in db.StoredCarts
+                              where storedCart.CustomerId == (int)Session["UserView"]
+                                 select storedCart).FirstOrDefault();
+
+                  cart.XmlList = sw.ToString();
+                  db.SaveChanges();
+                }
+            }
+            
+        }
         }
     }

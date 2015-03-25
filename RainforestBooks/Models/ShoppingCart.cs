@@ -6,8 +6,8 @@ using System.Web;
 namespace RainforestBooks.Models
 {
     public class ShoppingCart
-    {
-        public List<CartItem> CartItems { get; private set; }
+    {//this used to be private set
+        public List<CartItem> CartItems { get; set; }
 
         // Readonly properties can only be set in initialization or in a constructor
         public static readonly ShoppingCart Instance;

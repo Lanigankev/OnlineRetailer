@@ -7,7 +7,8 @@ namespace RainforestBooks.Models
 {
     public class CartItem: IEquatable<CartItem> {
 
- 
+        public CartItem() 
+        { }
     // A place to store the quantity in the cart
     // This property has an implicit getter and setter.
     public int Quantity { get; set; }

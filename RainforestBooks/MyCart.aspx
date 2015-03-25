@@ -45,7 +45,10 @@
             </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-10"></div>
+                <div class="col-md-8"></div>
+                <div class="col-md-2">
+                    <asp:Button ID="btnStoreCart" runat="server" Text="Save Cart Items" OnClick="btnStoreCart_Click" />
+                </div>
                  <div class="col-md-2">
             <asp:Button ID="btnPurchase" runat="server" Text="Submit Purchase" OnClick="btnPurchase_Click" />
                  </div>

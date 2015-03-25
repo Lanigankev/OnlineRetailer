@@ -70,3 +70,11 @@ AdminPassword NVARCHAR (250) NOT NULL,
 )
 Go
 
+CREATE TABLE tblStoredCarts
+(Reference NVARCHAR(100) NOT NULL PRIMARY KEY,
+CustomerId INT NOT NULL,
+XmlList NVARCHAR (2000)
+FOREIGN KEY (CustomerId) REFERENCES tblCustomers(CustomerId)
+)
+
+
