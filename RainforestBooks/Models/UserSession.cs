@@ -5,18 +5,22 @@ using System.Web;
 
 namespace RainforestBooks.Models
 {
-    public class UserSession
+    static public class UserSession
     {
+        //public int UserId { get; set; }
 
-        static UserSession(int userId)
+        static UserSession()
+        {
+            
+        }
+
+        static public void Login(int userId)
         {
             if (HttpContext.Current.Session["UserSession"] == null)
             {
                 HttpContext.Current.Session["UserSession"] = userId;
             }
-            
         }
-
         static public int ReturnUserId()
         {
             return (int)HttpContext.Current.Session["UserSession"];
@@ -24,7 +28,8 @@ namespace RainforestBooks.Models
 
         static void LogOut()
         {
-            HttpContext.Current.Session["UserSession"].;
+            HttpContext.Current.Session.Clear();
+            HttpContext.Current.Session.Abandon();
         }
     }
 }

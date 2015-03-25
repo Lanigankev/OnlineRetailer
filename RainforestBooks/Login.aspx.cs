@@ -53,7 +53,8 @@ namespace RainforestBooks
 
            if (isValidLogin)
            {
-               Session["UserView"] = customer.CustomerId;
+               UserSession.Login(customer.CustomerId);
+
                if(Request.Cookies["cartRef"]!= null)
                {
                    string xmlString;
