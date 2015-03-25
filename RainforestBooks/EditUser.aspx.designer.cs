@@ -10,7 +10,7 @@
 namespace RainforestBooks {
     
     
-    public partial class Register {
+    public partial class EditUser {
         
         /// <summary>
         /// txtFName control.
@@ -22,15 +22,6 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.TextBox txtFName;
         
         /// <summary>
-        /// lblFName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFName;
-        
-        /// <summary>
         /// txtLName control.
         /// </summary>
         /// <remarks>
@@ -38,15 +29,6 @@ namespace RainforestBooks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLName;
-        
-        /// <summary>
-        /// lblLName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLName;
         
         /// <summary>
         /// txtAddress1 control.
@@ -130,15 +112,6 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// lblEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
-        
-        /// <summary>
         /// txtPhone control.
         /// </summary>
         /// <remarks>
@@ -218,5 +191,14 @@ namespace RainforestBooks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegister;
+        
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
     }
 }
