@@ -1,8 +1,10 @@
-﻿using System;
+﻿using RainforestBooks.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -75,6 +77,20 @@ namespace RainforestBooks
             string search = txtSearch.Text;
 
             Response.Redirect("Search.aspx?search=" + search);
+        }
+
+        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+        public static string[] CompleteSearch(string prefixText, int count,string contextKey)
+        {
+            using (var db = new Context())
+            {
+                string[] searchResults = (from p in db.Products
+                                              where p.ProductTitle.Contains(prefixText)
+                                              select p.ProductTitle).ToArray(); //.Take(5)
+
+                return searchResults;
+            }
+
         }
     }
 }

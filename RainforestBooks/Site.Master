@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RainforestBooks.SiteMaster" %>
+
 <!DOCTYPE html>
 
 <html lang ="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -19,7 +20,9 @@
 </head>
 <body id="bg">
     <form id="form1" runat="server">
-        
+      <asp:ScriptManager ID="sm" runat="server" ></asp:ScriptManager>
+      
+       
     <div class="container">
             
       <!-- Static navbar -->
@@ -57,7 +60,21 @@
               
 
             <ul class="nav navbar-nav navbar-right">
-                <li><div class="searchDiv"><asp:TextBox CssClass="searchTextBox" ID="txtSearch" runat="server" Width="200px"></asp:TextBox><asp:Button CssClass="btn btn-default searchButton" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="70px" /></div></li>
+                <li><div class="searchDiv">
+                    
+                    <asp:TextBox CssClass="searchTextBox" ID="txtSearch" runat="server" Width="200px"></asp:TextBox>
+                    <ajaxtool:autocompleteextender 
+                 ID="Autocompleter" 
+                 TargetControlID="txtSearch"
+                 ServicePath="~/AutoComplete.asmx" 
+                        ContextKey="a"
+                 ServiceMethod="CompleteSearch"  
+                MinimumPrefixLength="1" 
+            CompletionInterval="500" 
+                runat="server">
+                    </ajaxtool:autocompleteextender>
+                    
+                    <asp:Button CssClass="btn btn-default searchButton" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="70px" /></div></li>
               <li><a href="Register.aspx">Register</a></li>
               <li><a href="Login.aspx">Login</a></li>    
             </ul>
@@ -82,7 +99,10 @@
 
         
             <footer class="well well-lg transparancy">
-                <p>Footer</p>
+                <p>Footer<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <ajaxtool:autocompleteextender ID="TextBox1_AutoCompleteExtender" runat="server" BehaviorID="TextBox1_AutoCompleteExtender" DelimiterCharacters="" ServiceMethod="CompleteSearch" TargetControlID="TextBox1">
+                    </ajaxtool:autocompleteextender>
+                </p>
             </footer>
         </div>
    
