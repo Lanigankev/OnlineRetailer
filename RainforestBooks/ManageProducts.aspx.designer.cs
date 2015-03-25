@@ -40,6 +40,15 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
+        /// lblProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProduct;
+        
+        /// <summary>
         /// txtStock control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace RainforestBooks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStock;
+        
+        /// <summary>
+        /// lblStock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStock;
         
         /// <summary>
         /// txtCost control.
@@ -58,6 +76,15 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.TextBox txtCost;
         
         /// <summary>
+        /// lblCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCost;
+        
+        /// <summary>
         /// txtDescription control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,15 @@ namespace RainforestBooks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        
+        /// <summary>
+        /// lblDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescription;
         
         /// <summary>
         /// HyperLink1 control.
@@ -92,6 +128,15 @@ namespace RainforestBooks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpload;
+        
+        /// <summary>
+        /// lblImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblImage;
         
         /// <summary>
         /// cmbGenre control.

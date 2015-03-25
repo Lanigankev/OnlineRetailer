@@ -23,6 +23,7 @@
   <h4>Description:</h4><p id="itemdescription"><%#:Item.ProductDescription %></p>
         <h4>Rating:<span id="itemrating"><% %></span></h4>
                  </div>
+
                      </ItemTemplate>
                  
              </asp:ListView>
@@ -36,6 +37,7 @@
                 </div>
             <div class="col-md-1">
             <asp:Button id="btnAddReview" Text="Add Review" runat="server" CssClass="btn-primary" OnClick="Button1_Click" />
+
                 </div>
                          </div>
         <div class ="row">
