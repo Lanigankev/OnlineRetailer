@@ -188,6 +188,7 @@ namespace RainforestBooks
             int userId;
             userId = UserSession.ReturnUserId();
             string cookieId = userId.ToString();
+           
             XmlSerializer xmlSerialize = new XmlSerializer(typeof(List<CartItem>));
             List<CartItem> list = ShoppingCart.Instance.CartItems;
             StringWriter sw = new StringWriter(new StringBuilder());
@@ -210,7 +211,7 @@ namespace RainforestBooks
                     db.SaveChanges();
                 }
 
-                cartRef = new HttpCookie("CartRef");
+                cartRef = new HttpCookie(cookieId);
                 cartRef.Value = reference;
                 cartRef.HttpOnly = true;
                 cartRef.Expires = DateTime.Now.AddMonths(1);
@@ -229,6 +230,39 @@ namespace RainforestBooks
                 }
             }
             
+        }
+
+        protected void btnClearStoredCart_Click(object sender, EventArgs e)
+        {
+            
+            int userId;
+            userId = UserSession.ReturnUserId();
+            string cookieId = userId.ToString();
+
+            HttpCookie cartRef = Request.Cookies[cookieId];
+
+            XmlSerializer xmlSerialize = new XmlSerializer(typeof(List<CartItem>));
+            List<CartItem> list = new List<CartItem>();
+            StringWriter sw = new StringWriter(new StringBuilder());
+
+            xmlSerialize.Serialize(sw, list);
+
+            if (cartRef != null)
+            {
+                using (var db = new Context())
+                {
+                    StoredCart cart = (from storedCart in db.StoredCarts
+                                       where storedCart.CustomerId == userId
+                                       select storedCart).FirstOrDefault();
+
+                    cart.XmlList = sw.ToString();
+                    db.SaveChanges();
+                }
+                
+            }
+
+            ShoppingCart.Instance.CartItems.Clear();
+            Response.Redirect(Request.RawUrl);
         }
         }
     }

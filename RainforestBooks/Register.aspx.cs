@@ -43,6 +43,7 @@ namespace RainforestBooks
             txtPhone.Text = string.Empty;
             txtUserName.Text = string.Empty;
             txtPassword.Text = string.Empty;
+            txtConfirm.Text = string.Empty;
         }
 
         protected void txtEmail_TextChanged(object sender, EventArgs e)
@@ -224,9 +225,9 @@ namespace RainforestBooks
                 _db.SaveChanges();
 
                 ClearForm();
-                txtAddress1.Text = customer.CustomerId.ToString();
-                //UserSession.Login(customer.CustomerId);
-                //Response.Redirect("Default.aspx");
+                
+                UserSession.Login(customer.CustomerId);
+                Response.Redirect("Default.aspx");
             }
     }
     }

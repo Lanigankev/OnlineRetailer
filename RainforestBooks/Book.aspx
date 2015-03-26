@@ -32,11 +32,11 @@
             </div>
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-md-1">
-            <asp:Button id="btnAddToCart" Text="Add to Cart" runat="server" CssClass="btn-primary" OnClick="btnAddToCart_Click" />
+            <div class="col-md-2">
+            <asp:Button id="btnAddToCart" Text="Add to Cart" runat="server" CssClass="btn btn-success btn-lg" OnClick="btnAddToCart_Click" />
                 </div>
-            <div class="col-md-1">
-            <asp:Button id="btnAddReview" Text="Add Review" runat="server" CssClass="btn-primary" OnClick="Button1_Click" />
+            <div class="col-md-2">
+            <asp:Button id="btnAddReview" Text="Add Review" runat="server" CssClass="btn btn-success btn-lg" OnClick="Button1_Click" />
 
                 </div>
                          </div>
@@ -49,12 +49,12 @@
             </div>
             </div>
         <div class ="row">
-            <div class="col-md-3"></div>
+            <div class="col-md-4"></div>
             <div class="col-md-6">
 
                 
 
-                <asp:Button ID="btnSubmitReview" runat="server" Text="Submit Review" CssClass="btn btn-default" OnClick="btnSubmitReview_Click"/>
+                <asp:Button ID="btnSubmitReview" runat="server" Text="Submit Review" CssClass="btn btn-success btn-lg" OnClick="btnSubmitReview_Click"/>
 
                 
 

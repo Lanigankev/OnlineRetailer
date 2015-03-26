@@ -69,13 +69,14 @@ namespace RainforestBooks
            if (isValidLogin)
            {
                UserSession.Login(user.CustomerId);
+               string cookieId = UserSession.ReturnUserId().ToString();
 
-               if(Request.Cookies["cartRef"]!= null)
+               if(Request.Cookies[cookieId]!= null)
                {
                    int customerId;
                    string xmlString;
                    customerId = UserSession.ReturnUserId();
-                   string reference = Request.Cookies["CartRef"].Value;
+                   string reference = Request.Cookies[cookieId].Value;
                    
 
                        xmlString = (from xml in db.StoredCarts
