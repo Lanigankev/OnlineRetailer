@@ -72,13 +72,13 @@
 
   <div class="form-group textBox">
     <label for="txtPassword" class="col-sm-2 control-label">Password</label>
-      <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
-        <asp:Label ID="lblPassword" runat="server" Text="** Password must not be empty" Visible="False"></asp:Label>
+      <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:Label ID="lblPassword" runat="server" Text="** Password must not be empty" Visible="False" ForeColor="Red"></asp:Label>
   </div>
 
         <div class="form-group textBox">
     <label for="txtPassword" class="col-sm-2 control-label">Confirm Password</label>
-      <asp:TextBox ID="txtConfirm" runat="server"></asp:TextBox>
+      <asp:TextBox ID="txtConfirm" runat="server" TextMode="Password"></asp:TextBox>
         <asp:Label ID="lblConfirm" runat="server" Text="** Passwords must match" Visible="False"></asp:Label>
   </div>
 

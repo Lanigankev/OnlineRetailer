@@ -8,7 +8,7 @@
                 <div class="col-sm-2">
                    
                 </div>
-                <div class="col-sm-8">   
+                <div class="col-sm-5">   
                     <div class="form-group">
                         <p><label for="txtName" class="control-label">Name</label></p>
       
@@ -39,7 +39,7 @@
                      <asp:Label ID="lblDescription" runat="server" Text="** Description not entered" Visible="False"></asp:Label>
                 </div>
  
-              <div class="form-group">
+              <%--<div class="form-group">
                      <p><label for="txtGenre" class="control-label">Book Genre</label></p>
                      <asp:DropDownList ID="cmbGenre" runat="server" Enabled="False">
                         <asp:ListItem>Action</asp:ListItem>
@@ -48,7 +48,7 @@
                         <asp:ListItem>Science</asp:ListItem>
                     </asp:DropDownList>
 
-              </div>
+              </div>--%>
                 
         
                 <div class="form-group">
@@ -65,4 +65,5 @@
                 </div>
                 </div>
                 </div>
+</div>
 </asp:Content>

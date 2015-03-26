@@ -41,7 +41,7 @@ namespace RainforestBooks
             bool cityEmpty = true;
             bool countryEmpty = true;
             bool passwordEmpty = true;
-           
+            //bool passwordExists = _db.Customers.Any(customer => customer.Email == txtEmail.Text);
 
 
             Validation val = new Validation();
@@ -54,7 +54,7 @@ namespace RainforestBooks
             address2Empty = string.IsNullOrEmpty(txtAddress2.Text);
             cityEmpty = string.IsNullOrEmpty(txtCity.Text);
             countryEmpty = string.IsNullOrEmpty(txtCountry.Text);
-            passwordEmpty = string.IsNullOrEmpty(txtPassword.Text);
+            passwordEmpty = string.IsNullOrEmpty(txtOldPassword.Text);
 
 
          
@@ -100,16 +100,16 @@ namespace RainforestBooks
             {
                 lblPhone.Visible = false;
             }
-            
-            if (passwordEmpty)
+
+            if (chckChange.Checked && passwordEmpty)
             {
-                lblPassword.Visible = true;
+                lblOldPassword.Visible = true;
             }
             else
             {
-                lblPassword.Visible = false;
+                lblOldPassword.Visible = false;
             }
-            if (txtConfirm.Text != txtPassword.Text)
+            if (chckChange.Checked && txtConfirm.Text != txtNewPassword.Text)
             {
                 lblConfirm.Visible = true;
             }
@@ -117,28 +117,53 @@ namespace RainforestBooks
             {
                 lblConfirm.Visible = false;
             }
-            if (!fNameEmpty && !lNameEmpty && !address1Empty && !address2Empty && !cityEmpty && !countryEmpty && !phoneEmpty && !passwordEmpty && txtConfirm.Text == txtPassword.Text)
+            if (!fNameEmpty && !lNameEmpty && !address1Empty && !address2Empty && !cityEmpty && !countryEmpty && !phoneEmpty) //&& !passwordEmpty && txtConfirm.Text == txtPassword.Text)
             {
-                Customer customer = (from cus in _db.Customers
-                                     where cus.UserName == txtUserName.Text
-                                     select cus).First();
+                if (chckChange.Checked && !passwordEmpty && txtConfirm.Text == txtNewPassword.Text)
+                {
+                    Customer customer = (from cus in _db.Customers
+                                         where cus.UserName == txtUserName.Text
+                                         select cus).First();
 
-                
-                customer.FirstName = txtFName.Text;
-                customer.LastName = txtLName.Text;
-                customer.Address1 = txtAddress1.Text;
-                customer.Address2 = txtAddress2.Text;
-                customer.City = txtCity.Text;
-                customer.Country = txtCountry.Text;
-                customer.Email = txtEmail.Text;
-                customer.Phone = txtPhone.Text;
-                customer.UserName = txtUserName.Text;
-                customer.UserPassword = HashCode.PassHash(txtPassword.Text);
 
-                //_db.Customers.Add(customer);
-                _db.SaveChanges();
+                    customer.FirstName = txtFName.Text;
+                    customer.LastName = txtLName.Text;
+                    customer.Address1 = txtAddress1.Text;
+                    customer.Address2 = txtAddress2.Text;
+                    customer.City = txtCity.Text;
+                    customer.Country = txtCountry.Text;
+                    customer.Email = txtEmail.Text;
+                    customer.Phone = txtPhone.Text;
+                    customer.UserName = txtUserName.Text;
+                    customer.UserPassword = HashCode.PassHash(txtNewPassword.Text);
 
-                ClearForm();
+                    //_db.Customers.Add(customer);
+                    _db.SaveChanges();
+
+                    ClearForm();
+                }
+                else if (!chckChange.Checked)
+                {
+                    Customer customer = (from cus in _db.Customers
+                                         where cus.UserName == txtUserName.Text
+                                         select cus).First();
+
+
+                    customer.FirstName = txtFName.Text;
+                    customer.LastName = txtLName.Text;
+                    customer.Address1 = txtAddress1.Text;
+                    customer.Address2 = txtAddress2.Text;
+                    customer.City = txtCity.Text;
+                    customer.Country = txtCountry.Text;
+                    customer.Email = txtEmail.Text;
+                    customer.Phone = txtPhone.Text;
+                    customer.UserName = txtUserName.Text;
+
+                    //_db.Customers.Add(customer);
+                    _db.SaveChanges();
+
+                    ClearForm();
+                }
             }
            
         }
@@ -153,9 +178,17 @@ namespace RainforestBooks
             txtCountry.Text = string.Empty;
             txtPhone.Text = string.Empty;
             txtUserName.Text = string.Empty;
-            txtPassword.Text = string.Empty;
+            //txtPassword.Text = string.Empty;
         }
-        protected void btnSearch_Click(object sender, EventArgs e)
+        
+
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            EditDetails();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
         {
             var _db = new Context();
 
@@ -179,12 +212,34 @@ namespace RainforestBooks
 
             txtPhone.Text = customer.Phone;
 
-            txtPassword.Text = customer.UserPassword.ToString();
+            //txtPassword.Text = customer.UserPassword.ToString();
         }
 
-        protected void btnRegister_Click(object sender, EventArgs e)
+        protected void chckChange_CheckedChanged(object sender, EventArgs e)
         {
-            EditDetails();
+            if (chckChange.Checked)
+            {
+                txtOldPassword.Enabled = true;
+                txtNewPassword.Enabled = true;
+                txtConfirm.Enabled = true;
+            }
+            else
+            {
+                txtOldPassword.Enabled = false;
+                txtNewPassword.Enabled = false;
+                txtConfirm.Enabled = false;
+            }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            var _db = new Context();
+
+            Customer customer = (from cus in _db.Customers
+                                 where cus.UserName == txtUserName.Text
+                                 select cus).First();
+            _db.Customers.Remove(customer);
+            _db.SaveChanges();
         }
 
     }

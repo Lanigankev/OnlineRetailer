@@ -23,9 +23,7 @@
                     <label for="txtPassword" class="col-sm-2 control-label">Password:</label>
                 </div>
                 <div class ="col-sm-4 col-md-4">
-                    <asp:TextBox ID="txtPassword" runat="server">
-
-                    </asp:TextBox></div>
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox></div>
                 </div>
             <div class="row spacer">
                 <div class ="col-sm-4 col-md-5"></div>

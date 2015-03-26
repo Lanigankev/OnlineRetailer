@@ -21,16 +21,17 @@ namespace RainforestBooks
 
             bool emptyTitle = true;
             bool emptyDescription = true;
+            bool wrongStock = true;
             bool emptyStock = true;
             bool emptyCost = true;
-
+            bool wrongCost = true;
 
             emptyTitle = string.IsNullOrEmpty(txtName.Text);
             emptyDescription = string.IsNullOrEmpty(txtDescription.Text);
             emptyStock = string.IsNullOrEmpty(txtStock.Text);
-            emptyStock = val.NumberValidator(txtStock.Text) == null ? false : true;
+            wrongStock = val.NumberValidator(txtStock.Text) == null ? false : true;
             emptyCost = string.IsNullOrEmpty(txtCost.Text);
-            emptyCost = val.DecimalValidator(txtCost.Text) == null ? false : true;
+            wrongCost = val.DecimalValidator(txtCost.Text) == null ? false : true;
 
             if (emptyTitle)
             {
@@ -50,17 +51,28 @@ namespace RainforestBooks
                 lblDescription.Visible = false;
             }
 
-            if (emptyStock)
+            if (wrongStock)
             {
                 lblStock.Text = val.NumberValidator(txtStock.Text);
+                lblStock.Visible = true;
+            }
+            else if(emptyStock)
+            {
+                lblStock.Text = "** Field must not be empty";
                 lblStock.Visible = true;
             }
             else
             {
                 lblStock.Visible = false;
             }
-            if (emptyCost)
+            if (wrongCost)
             {
+                lblCost.Text = val.DecimalValidator(txtCost.Text);
+                lblCost.Visible = true;
+            }
+            else if (emptyCost)
+            {
+                lblCost.Text = "** Field must not be empty";
                 lblCost.Visible = true;
             }
             else
@@ -78,7 +90,7 @@ namespace RainforestBooks
                 product.InStock = int.Parse(txtStock.Text);
                 product.Cost = decimal.Parse(txtCost.Text);
                 product.ProductDescription = txtDescription.Text;
-                product.Genre = cmbGenre.Text;
+                //product.Genre = cmbGenre.Text;
 
                 _db.SaveChanges();
 
