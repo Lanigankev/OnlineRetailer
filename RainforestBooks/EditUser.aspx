@@ -6,7 +6,7 @@
     <div class="panel-body">
         <div class="form-group">
     <label for="txtFName" class="col-sm-2 control-label">First Name</label>
-  
+
       <div class="col-sm-10">
       <asp:TextBox ID="txtFName" runat="server"></asp:TextBox>
     </div>

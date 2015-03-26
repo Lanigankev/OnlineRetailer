@@ -120,7 +120,7 @@ namespace RainforestBooks
             if (!fNameEmpty && !lNameEmpty && !address1Empty && !address2Empty && !cityEmpty && !countryEmpty && !phoneEmpty && !passwordEmpty && txtConfirm.Text == txtPassword.Text)
             {
                 Customer customer = (from cus in _db.Customers
-                                     where cus.FirstName == txtFName.Text
+                                     where cus.UserName == txtUserName.Text
                                      select cus).First();
 
                 
@@ -140,11 +140,7 @@ namespace RainforestBooks
 
                 ClearForm();
             }
-            else
-            {
-                lblPassword.Visible = true;
-                lblPassword.Text = "Sex";
-            }
+           
         }
         private void ClearForm()
         {
@@ -163,41 +159,27 @@ namespace RainforestBooks
         {
             var _db = new Context();
 
-            txtFName.Text = (from customers in _db.Customers
-                             where customers.UserName == txtUserName.Text
-                             select customers.FirstName).Single();
+            Customer customer = (from cus in _db.Customers
+                                 where cus.UserName == txtUserName.Text
+                                 select cus).First();
 
-            txtLName.Text = (from customers in _db.Customers
-                             where customers.UserName == txtUserName.Text
-                             select customers.LastName).Single();
+            txtFName.Text = customer.FirstName;
 
-            txtAddress1.Text = (from customers in _db.Customers
-                                where customers.UserName == txtUserName.Text
-                                select customers.Address1).Single();
+            txtLName.Text = customer.LastName;
 
-            txtAddress2.Text = (from customers in _db.Customers
-                                where customers.UserName == txtUserName.Text
-                                select customers.Address2).Single();
+            txtAddress1.Text = customer.Address1;
 
-            txtCity.Text = (from customers in _db.Customers
-                            where customers.UserName == txtUserName.Text
-                            select customers.City).Single();
+            txtAddress2.Text = customer.Address2;
 
-            txtCountry.Text = (from customers in _db.Customers
-                               where customers.UserName == txtUserName.Text
-                               select customers.Country).Single();
+            txtCity.Text = customer.City;
 
-            txtEmail.Text = (from customers in _db.Customers
-                             where customers.UserName == txtUserName.Text
-                             select customers.Email).Single();
+            txtCountry.Text = customer.Country;
 
-            txtPhone.Text = (from customers in _db.Customers
-                             where customers.UserName == txtUserName.Text
-                             select customers.Phone).Single();
+            txtEmail.Text = customer.Email;
 
-            txtPassword.Text = (from customers in _db.Customers
-                                where customers.UserName == txtUserName.Text
-                                select customers.UserPassword).Single();
+            txtPhone.Text = customer.Phone;
+
+            txtPassword.Text = customer.UserPassword.ToString();
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)

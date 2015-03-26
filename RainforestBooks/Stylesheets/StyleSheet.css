@@ -65,6 +65,12 @@ font-size:1.1em;
     margin:300px;
 }
 
+.BookSize
+{
+    max-width: 167px;
+    height: auto;
+}
+
 .searchImg {
     
 }

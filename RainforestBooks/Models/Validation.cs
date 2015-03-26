@@ -13,6 +13,7 @@ namespace RainforestBooks.Models
         public static Regex phoneCheck = new Regex(@"^\d{2,3}-\d{6,7}$");
         public static Regex passwordCheck = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$");
         public static Regex numberCheck = new Regex(@"^[0-9]*$");
+        public static Regex decimalCheck = new Regex(@"[0-9]+(\.[0-9][0-9]?)?");
         public static Match match;
 
 
@@ -31,6 +32,24 @@ namespace RainforestBooks.Models
                 message = "** Invalid number entered in" + Environment.NewLine;
             }
             return message;
+        }
+
+        public string DecimalValidator(string decInput)
+        {
+            string message = null;
+
+            match = decimalCheck.Match(decInput);
+
+            if (match.Success)
+            {
+                message = null;
+            }
+            else
+            {
+                message = "** Invalid number entered in" + Environment.NewLine;
+            }
+            return message;
+
         }
 
         public string EmailValidator(string emailInput)
