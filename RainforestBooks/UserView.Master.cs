@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RainforestBooks.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,7 +19,13 @@ namespace RainforestBooks
         {
             string search = txtSearch.Text;
 
-            Server.Transfer("Search.aspx?search=" + search);
+            Response.Redirect("Search.aspx?search=" + search);
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            UserSession.LogOut();
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

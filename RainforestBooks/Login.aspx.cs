@@ -1,4 +1,5 @@
-﻿using RainforestBooks.Models;
+﻿using RainforestBooks.Functions;
+using RainforestBooks.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,14 +13,24 @@ namespace RainforestBooks
 {
     public partial class Login : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_PreInit(object sender, EventArgs e)
         {
+            if (UserSession.ReturnUserId() != -1)
+            {
+                Response.Redirect("MyCart.aspx");
+            }
+            else if (AdminSession.IsAdminSession() == true)
+            {
 
+                Response.Redirect("Default.aspx");
+                
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             bool isValidLogin = false;
+            bool isValidAdmin = false;
             
             using (var db = new Context())
             { 
@@ -28,41 +39,49 @@ namespace RainforestBooks
             Customer customer = new Customer();
 
             username = txtUsername.Text;
-            password = txtPassword.Text;
+            password = HashCode.PassHash(txtPassword.Text);
             customer.UserName = username;
             customer.UserPassword = password;
 
             var query = (from c in db.Customers
                         where c.UserName == customer.UserName
                         && c.UserPassword == customer.UserPassword
-                        select c).ToList();
-            
+                        select c).FirstOrDefault();
+
+            var isAdmin = (from a in db.Admins
+                           where a.AdminName == customer.UserName
+                           && a.AdminPassword == customer.UserPassword
+                           select a).FirstOrDefault();
                 
-           if (query.Count > 0)
+           if (query != null)
             {
-                foreach(var user in query)
-                {
-                    customer = user;
-                }
+                
                 isValidLogin = true;
             }
             else
             {
                 isValidLogin = false;
             }
+             if(isAdmin != null)
+             {
+                 isValidAdmin = true;
+             }
 
-           if (isValidLogin)
+           if (isValidLogin && !isValidAdmin)
            {
                UserSession.Login(customer.CustomerId);
 
                if(Request.Cookies["cartRef"]!= null)
                {
+                   int customerId;
                    string xmlString;
+                   customerId = UserSession.ReturnUserId();
                    string reference = Request.Cookies["CartRef"].Value;
                    
 
                        xmlString = (from xml in db.StoredCarts
                                    where xml.Reference == reference
+                                   && xml.CustomerId == customerId
                                    select xml.XmlList).FirstOrDefault();
                        
                    if (xmlString != null)
@@ -77,6 +96,12 @@ namespace RainforestBooks
                }
                Response.Redirect("About.aspx", true);   
                
+           }
+           else if(isValidAdmin)
+           {
+
+               AdminSession.Login();
+               Response.Redirect("About.aspx", true); 
            }
            else
            {

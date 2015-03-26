@@ -21,6 +21,7 @@ namespace RainforestBooks.Models
         public DbSet<OrderProduct> OrderProducts { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<StoredCart> StoredCarts { get; set; }
+        public DbSet<Admin> Admins { get; set; }
 
 
     }

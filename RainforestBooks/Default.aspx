@@ -44,7 +44,7 @@
     <div class="row">
       <asp:ListView ID ="ProductListView" runat="server" ItemType="RainforestBooks.Models.Product" SelectMethod="GetProduct">
           <ItemTemplate>
-      <div class="col-sm-6 col-md-2">
+      <div class="col-sm-2 col-md-2">
         <div class="thumbnail">
         <a href ="Book.aspx?id=<%#:Item.ProductId %>"><img src="Content/BookCovers/<%#:Item.ProductImageRef %>" /></a>
           <div class="caption">

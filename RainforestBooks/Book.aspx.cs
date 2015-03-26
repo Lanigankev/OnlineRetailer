@@ -15,11 +15,26 @@ namespace RainforestBooks
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            if (Session["UserView"] != null)
+            if (UserSession.ReturnUserId() != -1)
             {
+                btnAddReview.Visible = true;
                 this.MasterPageFile = "~/UserView.master";
             }
+            else if (AdminSession.IsAdminSession() == true)
+            {
+                btnAddReview.Visible = true;
+                btnAddToCart.Visible = false;
+                this.MasterPageFile = "~/AdminView.master";
+            }
+            else
+            {
+
+                btnAddReview.Visible = false;
+               
+            }
         }
+
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -93,7 +108,14 @@ namespace RainforestBooks
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            ShoppingCart.Instance.AddItem(ProductId);
+            if (UserSession.ReturnUserId() != -1)
+            {
+                ShoppingCart.Instance.AddItem(ProductId);
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
         
     }

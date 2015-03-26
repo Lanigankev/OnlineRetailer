@@ -11,6 +11,20 @@ namespace RainforestBooks
 {
     public partial class Register : System.Web.UI.Page
     {
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (UserSession.ReturnUserId() != -1)
+            {
+                Response.Redirect("MyCart.aspx");
+            }
+            else if (AdminSession.IsAdminSession() == true)
+            {
+
+                Response.Redirect("Default.aspx");
+
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -209,6 +223,9 @@ namespace RainforestBooks
                 _db.SaveChanges();
 
                 ClearForm();
+
+                UserSession.Login(customer.CustomerId);
+                Response.Redirect("Default.aspx");
             }
     }
     }

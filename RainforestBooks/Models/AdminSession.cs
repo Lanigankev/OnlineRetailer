@@ -5,35 +5,33 @@ using System.Web;
 
 namespace RainforestBooks.Models
 {
-    static public class UserSession
+    static public class AdminSession
     {
-        
-
-        static UserSession()
+        static AdminSession()
         {
             
         }
 
-        static public void Login(int userId)
+        static public void Login()
         {
-            if (HttpContext.Current.Session["UserSession"] == null)
+            if (HttpContext.Current.Session["AdminSession"] == null)
             {
-                HttpContext.Current.Session["UserSession"] = userId;
+                HttpContext.Current.Session["AdminSession"] = true;
                 
             }
             
         }
-        static public int ReturnUserId()
+        static public bool IsAdminSession()
         {
-            int retVal;
+            bool retVal;
 
-            if (HttpContext.Current.Session["UserSession"] != null)
+            if (HttpContext.Current.Session["AdminSession"] != null)
             {
-                retVal = (int)HttpContext.Current.Session["UserSession"];
+                retVal = true;
             }
             else
             {
-                retVal = -1;
+                retVal = false;
             }
             return retVal;
         }
@@ -43,7 +41,5 @@ namespace RainforestBooks.Models
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.Abandon();
         }
-
-        
     }
 }

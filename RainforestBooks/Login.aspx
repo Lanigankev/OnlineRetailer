@@ -29,7 +29,7 @@
                 </div>
             <div class="row spacer">
                 <div class ="col-sm-4 col-md-5"></div>
-                <div class ="col-sm-4 col-md-4"><asp:Button CssClass="btn btn-default" runat="server" Text="Login" OnClick="btnLogin_Click"/></div>
+                <div class ="col-sm-4 col-md-4"><asp:Button CssClass="btn btn-success btn-lg" runat="server" Text="Login" OnClick="btnLogin_Click"/></div>
                 <div class ="col-sm-4 col-md-2"></div>
             </div>
             

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RainforestBooks.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,13 @@ namespace RainforestBooks
     {
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            if (Session["UserView"] != null)
+            if(UserSession.ReturnUserId() != -1)
             {
                 this.MasterPageFile = "~/UserView.master";
+            }
+            else if (AdminSession.IsAdminSession() == true)
+            {
+                this.MasterPageFile = "~/AdminView.master";
             }
         }
 
