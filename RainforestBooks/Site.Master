@@ -56,9 +56,10 @@
               
 
             <ul class="nav navbar-nav navbar-right">
-                <li><div class="input-group searchDiv">
+                
+                <li><div class="input-group">
                     
-                    <asp:TextBox CssClass="form-control" placeholder="Search for..." ID="txtSearch" runat="server" Width="230px"></asp:TextBox>
+                    <asp:TextBox CssClass="form-control" placeholder="Search for..." ID="txtSearch" runat="server"></asp:TextBox>
                  <!-- 
                      Legacy code for an attempted auto complete function for the search bar
                      
@@ -73,7 +74,7 @@
                 runat="server">
                     </ajaxtool:autocompleteextender>-->
                     <span class="input-group-btn">
-                    <asp:Button CssClass="btn btn-default" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="70px" />
+                    <asp:Button CssClass="btn btn-default" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search"/>
                         </span>
                         </div></li>
               <li><a href="Register.aspx">Register</a></li>

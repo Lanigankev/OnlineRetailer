@@ -17,19 +17,18 @@ namespace RainforestBooks
         {
             if (UserSession.ReturnUserId() != -1)
             {
-                btnAddReview.Visible = true;
+               
                 this.MasterPageFile = "~/UserView.master";
             }
             else if (AdminSession.IsAdminSession() == true)
             {
-                btnAddReview.Visible = true;
-                btnAddToCart.Visible = false;
+               
                 this.MasterPageFile = "~/AdminView.master";
             }
             else
             {
 
-                btnAddReview.Visible = false;
+                
                
             }
         }
@@ -38,6 +37,23 @@ namespace RainforestBooks
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (UserSession.ReturnUserId() != -1)
+            {
+                btnAddReview.Visible = true;
+                
+            }
+            else if (AdminSession.IsAdminSession() == true)
+            {
+                btnAddReview.Visible = true;
+                btnAddToCart.Visible = false;
+                
+            }
+            else
+            {
+
+                btnAddReview.Visible = false;
+
+            }
             txtReview.Visible = false;
             btnSubmitReview.Visible = false;
             int productId;
@@ -82,24 +98,26 @@ namespace RainforestBooks
 
         protected void btnSubmitReview_Click(object sender, EventArgs e)
         {
+            int customerId = UserSession.ReturnUserId();
             using (var db = new Context())
             {
                 string reviewText;
                 reviewText = txtReview.Text;
                 Review review = new Review();
-                review.CustomerId = (int)Session["UserView"];
-                review.ProductId = int.Parse(Request.QueryString["id"]);
+                review.CustomerId = customerId;
+                review.ProductId = ProductId;
                 review.ReviewText = reviewText;
                 review.Stars = 3;
 
                 db.Reviews.Add(review);
                 db.SaveChanges();
             }
-            
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            txtReview.Text = UserSession.ReturnUserId().ToString();
             txtReview.Visible = true;
             btnSubmitReview.Visible = true;
             //txtReview.Text = (int)Session["UserView"] + Environment.NewLine + int.Parse(Request.QueryString["id"]);

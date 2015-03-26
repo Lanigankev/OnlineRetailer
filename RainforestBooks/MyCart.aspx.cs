@@ -16,6 +16,20 @@ namespace RainforestBooks
 {
     public partial class MyCart : System.Web.UI.Page
     {
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (UserSession.ReturnUserId() == -1)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else if (AdminSession.IsAdminSession() == true)
+            {
+
+                Response.Redirect("Default.aspx");
+
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -173,19 +187,20 @@ namespace RainforestBooks
             string reference;
             int userId;
             userId = UserSession.ReturnUserId();
-
+            string cookieId = userId.ToString();
             XmlSerializer xmlSerialize = new XmlSerializer(typeof(List<CartItem>));
             List<CartItem> list = ShoppingCart.Instance.CartItems;
             StringWriter sw = new StringWriter(new StringBuilder());
 
             xmlSerialize.Serialize(sw, list);
 
-            if (Request.Cookies[userId.ToString()].Value == null)
+            HttpCookie cartRef = Request.Cookies[cookieId];
+            if (cartRef == null)
             {
 
                 reference = Guid.NewGuid().ToString();
                 StoredCart storedCart = new StoredCart();
-                storedCart.CustomerId = (int)Session["UserView"];
+                storedCart.CustomerId = UserSession.ReturnUserId();
                 storedCart.Reference = reference;
                 storedCart.XmlList = sw.ToString();
 
@@ -195,7 +210,7 @@ namespace RainforestBooks
                     db.SaveChanges();
                 }
 
-                HttpCookie cartRef = new HttpCookie("CartRef");
+                cartRef = new HttpCookie("CartRef");
                 cartRef.Value = reference;
                 cartRef.HttpOnly = true;
                 cartRef.Expires = DateTime.Now.AddMonths(1);

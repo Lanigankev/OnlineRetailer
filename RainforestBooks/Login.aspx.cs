@@ -43,33 +43,32 @@ namespace RainforestBooks
             customer.UserName = username;
             customer.UserPassword = password;
 
-            var query = (from c in db.Customers
+            Customer user = (from c in db.Customers
                         where c.UserName == customer.UserName
                         && c.UserPassword == customer.UserPassword
-                        select c).FirstOrDefault();
+                        select c).First();
 
-            var isAdmin = (from a in db.Admins
-                           where a.AdminName == customer.UserName
-                           && a.AdminPassword == customer.UserPassword
-                           select a).FirstOrDefault();
-                
-           if (query != null)
+            if (user != null && user.AdminRights == 0)
             {
                 
                 isValidLogin = true;
+                isValidAdmin = false;
+            }
+            else if (user != null && user.AdminRights > 0)
+            {
+                isValidAdmin = true;
+                isValidLogin = false;
             }
             else
             {
                 isValidLogin = false;
-            }
-             if(isAdmin != null)
-             {
-                 isValidAdmin = true;
+                isValidAdmin = false;
              }
 
-           if (isValidLogin && !isValidAdmin)
+             
+           if (isValidLogin)
            {
-               UserSession.Login(customer.CustomerId);
+               UserSession.Login(user.CustomerId);
 
                if(Request.Cookies["cartRef"]!= null)
                {

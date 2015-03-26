@@ -216,6 +216,7 @@ namespace RainforestBooks
                 customer.Phone = txtPhone.Text;
                 customer.UserName = txtUserName.Text;
                 customer.UserPassword = HashCode.PassHash(txtPassword.Text);
+                customer.AdminRights = 0;
 
 
 
@@ -223,9 +224,9 @@ namespace RainforestBooks
                 _db.SaveChanges();
 
                 ClearForm();
-
-                UserSession.Login(customer.CustomerId);
-                Response.Redirect("Default.aspx");
+                txtAddress1.Text = customer.CustomerId.ToString();
+                //UserSession.Login(customer.CustomerId);
+                //Response.Redirect("Default.aspx");
             }
     }
     }

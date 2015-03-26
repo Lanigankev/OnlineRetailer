@@ -27,6 +27,7 @@ namespace RainforestBooks
         protected void Page_Load(object sender, EventArgs e)
         {
             lblSearchTerm.Text = Request.QueryString["search"];
+            
         }
         public IQueryable<Product> SearchMethod([QueryString("search")] string searchTerm)
         {
@@ -52,7 +53,7 @@ namespace RainforestBooks
             }
             else if(AdminSession.IsAdminSession() != true &&  UserSession.ReturnUserId() == -1)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("EditItem.aspx");
             }
         }
         
