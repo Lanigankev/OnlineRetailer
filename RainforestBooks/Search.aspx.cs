@@ -13,9 +13,14 @@ namespace RainforestBooks
     {
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            if (Session["UserView"] != null)
+            if (UserSession.ReturnUserId() != -1)
             {
                 this.MasterPageFile = "~/UserView.master";
+            }
+            else if (AdminSession.IsAdminSession() == true)
+            {
+                
+                this.MasterPageFile = "~/AdminView.master";  
             }
         }
 
@@ -35,6 +40,20 @@ namespace RainforestBooks
             //    query = query.Where(product => product.ProductId == ProductId);
             //}
             return query;
+        }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            if (AdminSession.IsAdminSession() != true && UserSession.ReturnUserId() != -1)
+            {
+                LinkButton btn = (LinkButton)sender;
+                int prodId = int.Parse(btn.CommandArgument);
+                ShoppingCart.Instance.AddItem(prodId);
+            }
+            else if(AdminSession.IsAdminSession() != true &&  UserSession.ReturnUserId() == -1)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
         
     }

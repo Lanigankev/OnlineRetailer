@@ -111,75 +111,77 @@ namespace RainforestBooks
 
         protected void btnPurchase_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
-            order.CustomerId = (int)Session["UserView"];
-            order.OrderPlacedDate = DateTime.Now.Date;
-            order.TotalNoItems = ShoppingCart.Instance.CartItems.Count();
-            order.AdditionalInfo = "Some stuff";
-            try
+            if (ShoppingCart.Instance.CartItems.Count != 0)
             {
-                using (var db = new Context())
+                Order order = new Order();
+                order.CustomerId = UserSession.ReturnUserId();
+                order.OrderPlacedDate = DateTime.Now.Date;
+                order.TotalNoItems = ShoppingCart.Instance.CartItems.Count();
+                order.AdditionalInfo = "Some stuff";
+                try
                 {
-                    db.Orders.Add(order);
-                    db.SaveChanges();
-
-
-                    foreach (CartItem item in ShoppingCart.Instance.CartItems)
+                    using (var db = new Context())
                     {
-                        int stockLimit;
+                        db.Orders.Add(order);
+                        db.SaveChanges();
 
-                        OrderProduct orderProduct = new OrderProduct();
 
-                        stockLimit = (from p in db.Products
-                                      where p.ProductId == item.ProductId
-                                      select p.InStock).FirstOrDefault();
-
-                        if (item.Quantity > stockLimit)
+                        foreach (CartItem item in ShoppingCart.Instance.CartItems)
                         {
-                            Response.Write("<script language='javascript'>alert('This item does not have sufficient stock');</script>");
-                        }
-                        else
-                        {
-                            int newStockLevel;
-                            orderProduct.OrderId = order.OrderId;
-                            orderProduct.ProductId = item.ProductId;
-                            orderProduct.Quantity = item.Quantity;
-                            orderProduct.TotalCost = item.TotalPrice;
-                            db.OrderProducts.Add(orderProduct);
-                            Product updatedProduct = (from p in db.Products
-                                                      where p.ProductId == item.ProductId
-                                                      select p).FirstOrDefault();
-                            newStockLevel = updatedProduct.InStock - item.Quantity;
-                            updatedProduct.InStock = newStockLevel;
+                            int stockLimit;
 
+                            OrderProduct orderProduct = new OrderProduct();
+
+                            stockLimit = (from p in db.Products
+                                          where p.ProductId == item.ProductId
+                                          select p.InStock).FirstOrDefault();
+
+                            if (item.Quantity > stockLimit)
+                            {
+                                Response.Write("<script language='javascript'>alert('This item does not have sufficient stock');</script>");
+                            }
+                            else
+                            {
+                                int newStockLevel;
+                                orderProduct.OrderId = order.OrderId;
+                                orderProduct.ProductId = item.ProductId;
+                                orderProduct.Quantity = item.Quantity;
+                                orderProduct.TotalCost = item.TotalPrice;
+                                db.OrderProducts.Add(orderProduct);
+                                Product updatedProduct = (from p in db.Products
+                                                          where p.ProductId == item.ProductId
+                                                          select p).FirstOrDefault();
+                                newStockLevel = updatedProduct.InStock - item.Quantity;
+                                updatedProduct.InStock = newStockLevel;
+
+                            }
                         }
+                        db.SaveChanges();
                     }
-                    db.SaveChanges();
-                }}
-                catch(Exception)
+                }
+                catch (Exception)
                 {
-                
+
                 }
 
 
             }
+        }
 
         protected void btnStoreCart_Click(object sender, EventArgs e)
         {
             string reference;
+            int userId;
+            userId = UserSession.ReturnUserId();
+
             XmlSerializer xmlSerialize = new XmlSerializer(typeof(List<CartItem>));
             List<CartItem> list = ShoppingCart.Instance.CartItems;
             StringWriter sw = new StringWriter(new StringBuilder());
 
             xmlSerialize.Serialize(sw, list);
 
-            if (Request.Cookies["CartRef"].Value == null)
+            if (Request.Cookies[userId.ToString()].Value == null)
             {
-                
-                
-                
-
-                
 
                 reference = Guid.NewGuid().ToString();
                 StoredCart storedCart = new StoredCart();
@@ -204,7 +206,7 @@ namespace RainforestBooks
                 using(var db = new Context())
                 {
                   StoredCart cart = (from storedCart in db.StoredCarts
-                              where storedCart.CustomerId == (int)Session["UserView"]
+                                 where storedCart.CustomerId == userId
                                  select storedCart).FirstOrDefault();
 
                   cart.XmlList = sw.ToString();

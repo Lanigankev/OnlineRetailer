@@ -31,6 +31,7 @@
                 
                     
                 <h3><%#:Item.ProductTitle %></h3>
+                <p>Genre: <%#: Item.Genre %></p>
                         <div class ="row">
                             <div class="col-sm-4 col-md-7">
                 <p><%#:Item.ProductDescription %></p>
@@ -40,7 +41,7 @@
             <div class="col-sm-4 col-md-3">
                 <p>Price: &euro;<%#:Item.Cost %></p>
                 <p>Review: 4 Stars</p>
-                <asp:Button CssClass="btn btn-default" ID="btnAddToCart" runat="server" Text="Add to Cart" />
+                <asp:LinkButton CssClass="btn btn-primary" ID="btnAddToCart" runat="server" OnClick="btnAddToCart_Click" CommandArgument="<%#:Item.ProductId %>" Text="Add to Cart" CommandName="AddToCart" />
             </div>
                 </div><!--/inner row-->
                 </div>

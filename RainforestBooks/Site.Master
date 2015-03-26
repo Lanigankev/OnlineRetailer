@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RainforestBooks.SiteMaster" %>
+
 <!DOCTYPE html>
 
 <html lang ="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -13,13 +14,15 @@
     
     <link href="Stylesheets/Stylesheet.css" rel="stylesheet" />
     <script src="Scripts/OwnJavaScript.js"></script>
-
+    <script src="Scripts/jquery.autocomplete.js"></script>
  
 
 </head>
 <body id="bg">
     <form id="form1" runat="server">
-        
+    <!--  <asp:ScriptManager ID="sm" runat="server" ></asp:ScriptManager>-->
+      
+       
     <div class="container">
             
       <!-- Static navbar -->
@@ -44,20 +47,35 @@
                 <a href="Search.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories<span class="caret"></span></a>
                 <ul class="dropdown-menu transparancy" role="menu">
                   <li class="dropdown-header">Book Genres</li>
-                  <li><a href="#">Fiction</a></li>
-                  <li><a href="#">Non-fiction</a></li>
-                  <li><a href="#">How-to</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Other Products</li>
-                  <li><a href="#">Book Accessories</a></li>
-                  <li><a href="#">Guns</a></li>
+                  <li><a href="Search.aspx?search=fiction">Fiction</a></li>
+                  <li><a href="Search.aspx?search=non-fiction">Non-fiction</a></li>
+                  <li><a href="Search.aspx?search=how-to">How-to</a></li>
                 </ul>
               </li>
             </ul>
               
 
             <ul class="nav navbar-nav navbar-right">
-                <li><div class="searchDiv"><asp:TextBox CssClass="searchTextBox" ID="txtSearch" runat="server" Width="200px"></asp:TextBox><asp:Button CssClass="btn btn-default searchButton" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="70px" /></div></li>
+                <li><div class="input-group searchDiv">
+                    
+                    <asp:TextBox CssClass="form-control" placeholder="Search for..." ID="txtSearch" runat="server" Width="230px"></asp:TextBox>
+                 <!-- 
+                     Legacy code for an attempted auto complete function for the search bar
+                     
+                       <ajaxtool:autocompleteextender 
+                 ID="Autocompleter" 
+                 TargetControlID="txtSearch"
+                 ServicePath="~/AutoComplete.asmx" 
+                        ContextKey="a"
+                 ServiceMethod="CompleteSearch"  
+                MinimumPrefixLength="1" 
+            CompletionInterval="500" 
+                runat="server">
+                    </ajaxtool:autocompleteextender>-->
+                    <span class="input-group-btn">
+                    <asp:Button CssClass="btn btn-default" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="70px" />
+                        </span>
+                        </div></li>
               <li><a href="Register.aspx">Register</a></li>
               <li><a href="Login.aspx">Login</a></li>    
             </ul>
@@ -69,9 +87,6 @@
         <div class="panel panel-default transparancy">
              <div class="panel-body">
                  
-                 
-                
-                 
             </div>
         </div>
 
@@ -82,7 +97,31 @@
 
         
             <footer class="well well-lg transparancy">
-                <p>Footer</p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <p>Rainforest Books</p>
+                        <p>About</p>
+                        <p>Products</p>
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-1">
+                        <a href="http://www.facebook.com"><img class="icon img-responsive img-circle" src="Images/facebookicon.png" /></a></div>
+                    <div class="col-md-2">
+                        <a href="http://www.twitter.com"><img class="icon img-responsive img-circle" src="Images/twittericon.png" /></a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        <p>&copy;Rainforest Books</p>
+                    </div>
+                </div>
             </footer>
         </div>
    
