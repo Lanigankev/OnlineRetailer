@@ -12,7 +12,7 @@ namespace RainforestBooks
     public partial class Book : System.Web.UI.Page
     {
         private int ProductId { get; set; }
-
+        public int rating { get; set; }
         protected void Page_PreInit(object sender, EventArgs e)
         {
             if (UserSession.ReturnUserId() != -1)
@@ -95,7 +95,51 @@ namespace RainforestBooks
             }
             return query;
         }
+        public void Rating()
+        {
 
+            if (rdo1.Checked)
+            {
+                rdo2.Checked = false;
+                rdo3.Checked = false;
+                rdo4.Checked = false;
+                rdo5.Checked = false;
+                rating = 1;
+            }
+            else if (rdo2.Checked)
+            {
+                rdo1.Checked = false;
+                rdo3.Checked = false;
+                rdo4.Checked = false;
+                rdo5.Checked = false;
+                rating = 2;
+            }
+            else if (rdo3.Checked)
+            {
+                rdo2.Checked = false;
+                rdo1.Checked = false;
+                rdo4.Checked = false;
+                rdo5.Checked = false;
+                rating = 3;
+            }
+            else if (rdo4.Checked)
+            {
+                rdo2.Checked = false;
+                rdo3.Checked = false;
+                rdo1.Checked = false;
+                rdo5.Checked = false;
+                rating = 4;
+            }
+            else if (rdo5.Checked)
+            {
+                rdo2.Checked = false;
+                rdo3.Checked = false;
+                rdo4.Checked = false;
+                rdo1.Checked = false;
+                rating = 5;
+            }
+           
+        }
         protected void btnSubmitReview_Click(object sender, EventArgs e)
         {
             int customerId = UserSession.ReturnUserId();
@@ -107,7 +151,7 @@ namespace RainforestBooks
                 review.CustomerId = customerId;
                 review.ProductId = ProductId;
                 review.ReviewText = reviewText;
-                review.Stars = 3;
+                review.Stars = rating;
 
                 db.Reviews.Add(review);
                 db.SaveChanges();

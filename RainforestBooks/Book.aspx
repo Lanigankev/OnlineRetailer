@@ -47,6 +47,13 @@
                 <asp:TextBox CssClass="textBox" ID="txtReview" runat="server" Width="400px" Height="105px" TextMode="MultiLine"></asp:TextBox>
 
             </div>
+            <div class="col-md-3">
+                <asp:RadioButton ID="rdo1" runat="server" Text="1 Star" />
+                <asp:RadioButton ID="rdo2" runat="server" Text="2 Stars" />
+                <asp:RadioButton ID="rdo3" runat="server" Text="3 Stars" />
+                <asp:RadioButton ID="rdo4" runat="server" Text="4 Stars" />
+                <asp:RadioButton ID="rdo5" runat="server" Text="5 Stars" />
+            </div>
             </div>
         <div class ="row">
             <div class="col-md-4"></div>

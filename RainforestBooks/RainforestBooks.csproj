@@ -143,6 +143,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="AjaxCompleteSrv.svc" />
     <Content Include="AutoComplete.asmx" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="Book.aspx" />
     <Content Include="Content\BookCovers\bootstrap.jpg" />
     <Content Include="Content\BookCovers\gemini.jpg" />
@@ -446,7 +447,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
