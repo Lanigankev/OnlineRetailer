@@ -44,7 +44,7 @@ namespace RainforestBooks
             }
             else if (AdminSession.IsAdminSession() == true)
             {
-                btnAddReview.Visible = true;
+                btnAddReview.Visible = false;
                 btnAddToCart.Visible = false;
                 
             }
@@ -92,13 +92,15 @@ namespace RainforestBooks
             if (ProductId.HasValue && ProductId > 0)
             {
                 query = query.Where(review => review.ProductId == ProductId);
+                return query;
             }
-            return query;
+            return query=null;
         }
 
         protected void btnSubmitReview_Click(object sender, EventArgs e)
         {
             int customerId = UserSession.ReturnUserId();
+            
             using (var db = new Context())
             {
                 string reviewText;

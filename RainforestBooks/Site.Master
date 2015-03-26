@@ -57,7 +57,18 @@
 
             <ul class="nav navbar-nav navbar-right">
                 
-                <li><div class="input-group">
+                
+              <li><a href="Register.aspx">Register</a></li>
+              <li><a href="Login.aspx">Login</a></li>    
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <!-- Main component for a primary marketing message or call to action -->
+        <div class="panel panel-default transparancy">
+             <div class="panel-body">
+                 <div class="input-group">
                     
                     <asp:TextBox CssClass="form-control" placeholder="Search for..." ID="txtSearch" runat="server"></asp:TextBox>
                  <!-- 
@@ -76,18 +87,7 @@
                     <span class="input-group-btn">
                     <asp:Button CssClass="btn btn-default" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search"/>
                         </span>
-                        </div></li>
-              <li><a href="Register.aspx">Register</a></li>
-              <li><a href="Login.aspx">Login</a></li>    
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
-
-      <!-- Main component for a primary marketing message or call to action -->
-        <div class="panel panel-default transparancy">
-             <div class="panel-body">
-                 
+                        </div>
             </div>
         </div>
 
