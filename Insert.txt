@@ -8,7 +8,8 @@ City,
 Country,
 Phone,
 UserName,
-UserPassword)
+UserPassword,
+AdminRights)
 VALUES
 ('Kevin',
 'Lanigan',
@@ -19,20 +20,8 @@ VALUES
 'Ireland',
 '051-123456',
 'kevin',
-'kevin')
-
-Insert Into tblCustomers
-(FirstName,
-LastName,
-Address1,
-Address2,
-Email,
-City,
-Country,
-Phone,
-UserName,
-UserPassword)
-VALUES
+'2551801182818613114811219592385417417757245141125186169',
+1),
 ('Simon',
 'Melouah',
 'House',
@@ -42,30 +31,9 @@ VALUES
 'Ireland',
 '01-8734212',
 'simon',
-'simon')
+'814222161114611917793882502408430171451418386246',
+0)
 
-Insert Into tblCustomers
-(FirstName,
-LastName,
-Address1,
-Address2,
-Email,
-City,
-Country,
-Phone,
-UserName,
-UserPassword)
-VALUES
-('Jose',
-'Rios',
-'Calle Estrecho',
-'Cuzco',
-'miguel@gmail.com',
-'Madrid',
-'Spain',
-'34-1232312',
-'miguel',
-'miguel')
 
 
 INSERT INTO tblProducts
@@ -80,13 +48,13 @@ Genre
 )
 VALUES
 (
-'The Joy of Bootstrap',
+'The Joy Of Bootstrap',
 'bootstrap.jpg',
-5,
-24.99,
-'This is a really good book about bootstrap. Its the best book about bootstrap I''ve ever read. So you better read this book about bootstrap today. Some people call it the bible of web design. I actually worship it every day of the week',
+3,
+8.99,
+'This has been described as the best book about bootstrap ever released. You will literally learn bootstrap in 10 minutes*. Bill Gates has said he would rather have written this book instead of founding Microsoft. *Results may vary',
 'Books',
-'Programming'
+'Science'
 )
 
 INSERT INTO tblProducts
@@ -101,14 +69,15 @@ Genre
 )
 VALUES
 (
-'The Gemini effect',
+'The Gemini Effect',
 'gemini.jpg',
-8,
-10.99,
-'Its a book about twins. Its not very good. I wouldnt give it the time of day or the steam off my piss.',
+60,
+15.99,
+'This is a book about two twins who attend a party and manage to avoid being asked if they are identical twins for a whole 20 minutes. The Chicago Tribune has described it as an emotional rollercoaster. The New York times said it was "alright".',
 'Books',
-'Fiction'
+'Action'
 )
+
 
 INSERT INTO tblReviews
 (CustomerId,
@@ -121,32 +90,6 @@ VALUES
 1,
 'This is a really good book to learn bootstrap',
 4
-)
-
-INSERT INTO tblReviews
-(CustomerId,
-ProductId,
-ReviewText,
-Stars
-)
-VALUES
-(2,
-1,
-'This is a really awful book to learn bootstrap, what a terrible book',
-1
-)
-
-INSERT INTO tblReviews
-(CustomerId,
-ProductId,
-ReviewText,
-Stars
-)
-VALUES
-(2,
-2,
-'This is a really awful book about twins',
-1
 )
 
 INSERT INTO tblProducts
@@ -166,8 +109,8 @@ VALUES
 20,
 9.99,
 'This is cooking book about cooking spirals. It also has plenty of anecdotes about Gordan Ramsays penchant for water polo',
-'Books',
-'Cooking'
+'Cooking',
+'Action'
 ),
 (
 'Moody Bitches',
@@ -176,16 +119,16 @@ VALUES
 5.99,
 'This isn''t a vey good book. But it has a lot of profanity in it. So at the end of the day. What more could you want',
 'Books',
-'Fiction'
+'Adventure'
 ),
 (
 'Younger',
 'younger.jpg',
 20,
 12.99,
-'Neither you nor this book are getting any younger. Buy this now and sort your life out. Buy a sports car',
+'We know that neither you nor this book are getting any younger. Buy this now and sort your life out. Buy a bottle of red wine to accompany this book.',
 'Books',
-'How-To'
+'Romance'
 ),
 (
 'The Grand Design',
@@ -194,5 +137,51 @@ VALUES
 12.99,
 'Feeling bored? Why not learn about astrophysics? Impress your friends with the knowledge of supernovas and black holes. You''ll be popular amongst the dinner party crowds',
 'Books',
-'Non-Fiction'
+'Science'
+),
+(
+'Robinson Crusoe',
+'robin.jpg',
+4,
+12.99,
+'This is a book about a man trapped on an Island. The man's only companion is another man called Friday. It's an analogy for modern men living for the weekend.',
+'Books',
+'Science'
+),
+(
+'Ultimate Warrior Workouts',
+'ultimate.jpg',
+7,
+13.99,
+'What a load of *****. But then again you knew that before you clicked on this book. Yet here you are. Shame on you',
+'Books',
+'Action'
+),
+(
+'Roy Keane',
+'roy.jpg',
+8,
+2.99,
+'Simply outrageous. It''s amazing that so much ego can fit into one book binding. Rumour has it the publisher broke seven printing presses trying to print the first draft. It''s an amazing piece of editing this book.',
+'Books',
+'Action'
 )
+
+INSERT INTO tblReviews
+(CustomerId,
+ProductId,
+ReviewText,
+Stars
+)
+VALUES
+(2,
+1,
+'This is a really awful book to learn bootstrap, what a terrible book',
+1
+),
+(2,
+2,
+'This is a really awful book about twins',
+1
+)
+

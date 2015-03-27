@@ -30,7 +30,7 @@
 
     <div class="item">
        <h1>Capitalism</h1>
-        <p>We fully support capitalist greed. We support it so strongly that we're willing to keep ruthless dictators in power in the places, that you don't really care about. Want a starbucks? Come worship corporate greed with us Monday to Friday!</p>
+        <p>We fully support capitalist greed. We support it so strongly that we're willing to keep ruthless dictators in power in places that you don't really care about. Want an overpriced coffee? Come worship corporate greed with us Monday to Friday!</p>
     </div>
 
     
