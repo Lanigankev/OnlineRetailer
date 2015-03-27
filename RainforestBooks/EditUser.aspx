@@ -51,7 +51,7 @@
 
         <div class="form-group textBox">
     <label for="txtEmail" class="col-sm-2 control-label">Email</label>
-      <asp:TextBox ID="txtEmail" runat="server" OnTextChanged="txtEmail_TextChanged" ReadOnly="True"></asp:TextBox>
+      <asp:TextBox ID="txtEmail" runat="server" ReadOnly="True"></asp:TextBox>
   </div>
 
         <div class="form-group textBox">
@@ -65,7 +65,7 @@
   <div class="form-group textBox">
       
     <label for="txtUserName" class="col-sm-2 control-label">User Name</label>
-      <asp:TextBox ID="txtUserName" runat="server" OnTextChanged="txtUserName_TextChanged" ReadOnly="True"></asp:TextBox>
+      <asp:TextBox ID="txtUserName" runat="server" ReadOnly="True"></asp:TextBox>
   </div>
                 <div class="form-group textBox">
                     <asp:CheckBox ID="chckChange" runat="server" Text="Change Password" AutoPostBack="true" OnCheckedChanged="chckChange_CheckedChanged1" />

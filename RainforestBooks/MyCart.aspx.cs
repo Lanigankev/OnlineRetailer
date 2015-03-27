@@ -182,7 +182,7 @@ namespace RainforestBooks
                         db.SaveChanges();
                         
                         SendConfirmationEmail(UserSession.ReturnUserObj(), ShoppingCart.Instance.CartItems);
-                        ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Order has been received');", true);
+                        Response.Write("<script language='javascript'>alert('Purchase has been successfull');</script>");
                         ClearAllCart();
                     }
                 }
@@ -285,7 +285,7 @@ namespace RainforestBooks
         private void SendConfirmationEmail(Customer user, List<CartItem> order)
         {
             string sender = "rainforestbooksweb@gmail.com";
-            string email = "lanigan.kev@gmail.com";//user.Email;
+            string email = user.Email;
 
             string message = string.Format("Hi "+ user.FirstName+"," + Environment.NewLine
                                                      + Environment.NewLine+"You have successfully purchased:"
@@ -321,8 +321,7 @@ namespace RainforestBooks
                 {
                 
                 }
-                   
-                //ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Email sent.');", true);
+
             }
         }
         }

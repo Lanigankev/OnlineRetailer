@@ -12,6 +12,15 @@ namespace RainforestBooks
     public partial class ManageProducts : System.Web.UI.Page
     {
         public string type { get; set; }
+
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (AdminSession.IsAdminSession() != true)
+            {
+                Response.Redirect("Default.aspx");
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,6 +29,7 @@ namespace RainforestBooks
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             AddItem();
+            Response.Write("<script language='javascript'>alert('Item added');</script>");
         }
 
         private void ClearForm()

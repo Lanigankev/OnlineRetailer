@@ -50,6 +50,7 @@ namespace RainforestBooks
                 LinkButton btn = (LinkButton)sender;
                 int prodId = int.Parse(btn.CommandArgument);
                 ShoppingCart.Instance.AddItem(prodId);
+                Response.Write("<script language='javascript'>alert('Item added to cart');</script>");
             }
             else if(AdminSession.IsAdminSession() != true &&  UserSession.ReturnUserId() == -1)
             {

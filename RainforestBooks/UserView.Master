@@ -41,9 +41,13 @@
                 <a href="Search.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories<span class="caret"></span></a>
                 <ul class="dropdown-menu transparancy" role="menu">
                   <li class="dropdown-header">Book Genres</li>
-                  <li><a href="Search.aspx?search=fiction">Fiction</a></li>
-                  <li><a href="Search.aspx?search=non-fiction">Non-fiction</a></li>
-                  <li><a href="Search.aspx?search=how-to">How-to</a></li>
+                  <li><a href="Search.aspx?search=fiction">Action</a></li>
+                  <li><a href="Search.aspx?search=non-fiction">Adventure</a></li>
+                  <li><a href="Search.aspx?search=how-to">Romance</a></li>
+                    <li><a href="Search.aspx?search=how-to">Science</a></li>
+                    <li class="divider"></li>
+                  <li class="dropdown-header">Other Products</li>
+                    <%--<li><a href="Search.aspx?search=NA">Book Accessories</a></li>--%>
 
                 </ul>
               </li>

@@ -227,7 +227,7 @@ namespace RainforestBooks
                 ClearForm();
                 
                 UserSession.Login(customer.CustomerId);
-                Response.Redirect("Default.aspx");
+                Response.Redirect("Default.aspx", true);
             }
     }
     }
