@@ -2,13 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
     <div class="panel panel-default transparancy">
         <div class="panel-body">
-            <div class="row">
-                <div class="col-sm-2">
-                   
-                </div>
-                <div class="col-sm-5">   
+              <div class="row">
+                  <div class="col-md-2"></div>
+                    <div class="col-md-6">  
                     <div class="form-group">
                         <p><label for="txtName" class="control-label">Name</label></p>
       
@@ -52,7 +53,7 @@
                 
         
                 <div class="form-group">
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                    <asp:Button ID="btnSubmit" CssClass="btn btn-success btn-lg" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
         
                 </div>
                 </div>
@@ -62,8 +63,11 @@
                        <asp:Image CssClass="img-responsive BookSize" ID="imgItem" runat="server"/>
            
                     </div>
+               </div>
+                </div>
+                </div> 
                 </div>
                 </div>
                 </div>
-</div>
+
 </asp:Content>

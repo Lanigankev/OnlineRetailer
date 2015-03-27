@@ -130,15 +130,6 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// lblEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
-        
-        /// <summary>
         /// txtPhone control.
         /// </summary>
         /// <remarks>
@@ -166,15 +157,6 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
-        /// lblUserName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
-        
-        /// <summary>
         /// chckChange control.
         /// </summary>
         /// <remarks>
@@ -182,15 +164,6 @@ namespace RainforestBooks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chckChange;
-        
-        /// <summary>
-        /// txtOldPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
         
         /// <summary>
         /// lblOldPassword control.
@@ -202,6 +175,33 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.Label lblOldPassword;
         
         /// <summary>
+        /// txtOldPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
+        
+        /// <summary>
+        /// lblOldPasswordWarning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOldPasswordWarning;
+        
+        /// <summary>
+        /// lblNewPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNewPassword;
+        
+        /// <summary>
         /// txtNewPassword control.
         /// </summary>
         /// <remarks>
@@ -209,6 +209,15 @@ namespace RainforestBooks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
+        
+        /// <summary>
+        /// lblConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirm;
         
         /// <summary>
         /// txtConfirm control.
@@ -220,13 +229,13 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.TextBox txtConfirm;
         
         /// <summary>
-        /// lblConfirm control.
+        /// lblConfirmWarning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConfirm;
+        protected global::System.Web.UI.WebControls.Label lblConfirmWarning;
         
         /// <summary>
         /// btnRegister control.

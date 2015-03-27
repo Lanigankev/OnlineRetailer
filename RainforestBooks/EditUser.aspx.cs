@@ -56,7 +56,22 @@ namespace RainforestBooks
             countryEmpty = string.IsNullOrEmpty(txtCountry.Text);
             passwordEmpty = string.IsNullOrEmpty(txtOldPassword.Text);
 
-
+            if (fNameEmpty)
+            {
+                lblFName.Visible = true;
+            }
+            else
+            {
+                lblFName.Visible = false;
+            }
+            if (lNameEmpty)
+            {
+                lblLName.Visible = true;
+            }
+            else
+            {
+                lblLName.Visible = false;
+            }
          
             if (address1Empty)
             {
@@ -215,21 +230,6 @@ namespace RainforestBooks
             //txtPassword.Text = customer.UserPassword.ToString();
         }
 
-        protected void chckChange_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chckChange.Checked)
-            {
-                txtOldPassword.Enabled = true;
-                txtNewPassword.Enabled = true;
-                txtConfirm.Enabled = true;
-            }
-            else
-            {
-                txtOldPassword.Enabled = false;
-                txtNewPassword.Enabled = false;
-                txtConfirm.Enabled = false;
-            }
-        }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
@@ -240,6 +240,28 @@ namespace RainforestBooks
                                  select cus).First();
             _db.Customers.Remove(customer);
             _db.SaveChanges();
+        }
+
+        protected void chckChange_CheckedChanged1(object sender, EventArgs e)
+        {
+            if (chckChange.Checked)
+            {
+                lblOldPassword.Visible = true;
+                lblNewPassword.Visible = true;
+                lblConfirm.Visible = true;
+                txtOldPassword.Visible = true;
+                txtNewPassword.Visible = true;
+                txtConfirm.Visible = true;
+            }
+            else if (!chckChange.Checked)
+            {
+                lblOldPassword.Visible = false;
+                lblNewPassword.Visible = false;
+                lblConfirm.Visible = false;
+                txtOldPassword.Visible = false;
+                txtNewPassword.Visible = false;
+                txtConfirm.Visible = false;
+            }
         }
 
     }

@@ -13,22 +13,31 @@ namespace RainforestBooks {
     public partial class ManageProducts {
         
         /// <summary>
-        /// rdoBook control.
+        /// RadioButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdoBook;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
         
         /// <summary>
-        /// rdoAccessory control.
+        /// RadioButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdoAccessory;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
+        
+        /// <summary>
+        /// lblCatergory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCatergory;
         
         /// <summary>
         /// txtName control.
@@ -47,6 +56,15 @@ namespace RainforestBooks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProduct;
+        
+        /// <summary>
+        /// cmbGenre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbGenre;
         
         /// <summary>
         /// txtStock control.
@@ -85,24 +103,6 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.Label lblCost;
         
         /// <summary>
-        /// txtDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
-        
-        /// <summary>
-        /// lblDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescription;
-        
-        /// <summary>
         /// HyperLink1 control.
         /// </summary>
         /// <remarks>
@@ -121,31 +121,22 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.FileUpload txtImageUpload;
         
         /// <summary>
-        /// btnUpload control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpload;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
-        /// lblImage control.
+        /// lblDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImage;
-        
-        /// <summary>
-        /// cmbGenre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbGenre;
+        protected global::System.Web.UI.WebControls.Label lblDescription;
         
         /// <summary>
         /// btnSubmit control.
