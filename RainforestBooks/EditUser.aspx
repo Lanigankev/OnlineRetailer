@@ -55,7 +55,8 @@
   </div>
 
         <div class="form-group textBox">
-    <label for="txtPhone" class="col-sm-2 control-label">Phone</label>
+            <asp:Label ID="lblPhoneTag" runat="server" CssClass="col-sm-2 control-label" Font-Bold="True">Phone</asp:Label>
+    <%--<label for="txtPhone" class="col-sm-2 control-label">Phone</label>--%>
       <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
           <asp:Label ID="lblPhone" runat="server" Visible="False"></asp:Label>
   </div>

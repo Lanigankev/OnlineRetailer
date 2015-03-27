@@ -88,7 +88,31 @@
 
         
             <footer class="well well-lg transparancy">
-                <p>Footer</p>
+                 <div class="row">
+                    <div class="col-md-3">
+                        <p>Rainforest Books</p>
+                        <p>About</p>
+                        <p>Products</p>
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-1">
+                        <a href="http://www.facebook.com"><img class="icon img-responsive img-circle" src="Images/facebookicon.png" /></a></div>
+                    <div class="col-md-2">
+                        <a href="http://www.twitter.com"><img class="icon img-responsive img-circle" src="Images/twittericon.png" /></a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        <p>&copy;Rainforest Books</p>
+                    </div>
+                </div>
             </footer>
         </div>
    

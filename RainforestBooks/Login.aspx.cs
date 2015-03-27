@@ -94,7 +94,7 @@ namespace RainforestBooks
                            ShoppingCart.Instance.CartItems = storedList;
                        }
                }
-               Response.Redirect("About.aspx", true);   
+               Response.Redirect("Default.aspx", true);   
                
            }
            else if(isValidAdmin)

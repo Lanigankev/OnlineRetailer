@@ -41,7 +41,7 @@
             <div class="col-sm-4 col-md-3">
                 <p>Price: &euro;<%#:Item.Cost %></p>
                 
-                <asp:LinkButton CssClass="btn btn-primary" ID="btnAddToCart" runat="server" OnClick="btnAddToCart_Click" CommandArgument="<%#:Item.ProductId %>" Text="Add to Cart" CommandName="AddToCart" />
+                <asp:LinkButton CssClass="btn btn-success" ID="btnAddToCart" runat="server" OnClick="btnAddToCart_Click" CommandArgument="<%#:Item.ProductId %>" Text="Add to Cart" CommandName="AddToCart" />
             </div>
                 </div><!--/inner row-->
                 </div>

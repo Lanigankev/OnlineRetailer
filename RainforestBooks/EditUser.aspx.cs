@@ -11,9 +11,36 @@ namespace RainforestBooks
 {
     public partial class EditUser : System.Web.UI.Page
     {
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (UserSession.ReturnUserId() == -1)
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else if (AdminSession.IsAdminSession() == true)
+            {
+                Response.Redirect("Default.aspx");
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            using(var db = new Context())
+            {
+                int custId = UserSession.ReturnUserId();
+                Customer user = (from c in db.Customers
+                                 where c.CustomerId == custId
+                                 select c).FirstOrDefault();
+
+                txtFName.Text = user.FirstName;
+                txtLName.Text = user.LastName;
+                txtCountry.Text = user.Country;
+                txtCity.Text = user.City;
+                txtAddress1.Text = user.Address1;
+                txtAddress2.Text = user.Address2;
+                txtEmail.Text = user.Email;
+                txtPhone.Text = user.Phone;
+                txtUserName.Text = user.UserName;
+            }
         }
 
         protected void txtEmail_TextChanged(object sender, EventArgs e)

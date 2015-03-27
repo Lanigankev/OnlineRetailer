@@ -40,6 +40,24 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.Button btnAddReview;
         
         /// <summary>
+        /// btnDeleteReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteReview;
+        
+        /// <summary>
+        /// lblReviewAverage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblReviewAverage;
+        
+        /// <summary>
         /// txtReview control.
         /// </summary>
         /// <remarks>
@@ -49,13 +67,31 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.TextBox txtReview;
         
         /// <summary>
-        /// rdo1 control.
+        /// lblWarning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdo1;
+        protected global::System.Web.UI.WebControls.Label lblWarning;
+        
+        /// <summary>
+        /// rdo5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdo5;
+        
+        /// <summary>
+        /// rdo4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdo4;
         
         /// <summary>
         /// rdo2 control.
@@ -76,22 +112,13 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.RadioButton rdo3;
         
         /// <summary>
-        /// rdo4 control.
+        /// rdo1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdo4;
-        
-        /// <summary>
-        /// rdo5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdo5;
+        protected global::System.Web.UI.WebControls.RadioButton rdo1;
         
         /// <summary>
         /// btnSubmitReview control.
