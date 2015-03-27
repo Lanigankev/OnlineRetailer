@@ -90,7 +90,7 @@ namespace RainforestBooks
                 product.InStock = int.Parse(txtStock.Text);
                 product.Cost = decimal.Parse(txtCost.Text);
                 product.ProductDescription = txtDescription.Text;
-                //product.Genre = cmbGenre.Text;
+                
 
                 _db.SaveChanges();
 
@@ -104,6 +104,7 @@ namespace RainforestBooks
             txtStock.Text = string.Empty;
             txtCost.Text = string.Empty;
             txtDescription.Text = string.Empty;
+            imgItem.ImageUrl = string.Empty;
             }
 
        protected void btnSearch_Click(object sender, EventArgs e)

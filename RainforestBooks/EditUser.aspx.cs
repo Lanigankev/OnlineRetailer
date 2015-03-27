@@ -197,7 +197,7 @@ namespace RainforestBooks
 
                         _db.SaveChanges();
 
-                        ClearForm();
+                        //ClearForm();
                     }
                     else if (!chckChange.Checked)
                     {
@@ -218,25 +218,27 @@ namespace RainforestBooks
 
                         _db.SaveChanges();
 
-                        ClearForm();
+                        //ClearForm();
                     }
+                    
+                    Response.Redirect("Default.aspx");
                 }
             }
            
         }
-        private void ClearForm()
-        {
-            txtFName.Text = string.Empty;
-            txtLName.Text = string.Empty;
-            txtAddress1.Text = string.Empty;
-            txtAddress2.Text = string.Empty;
-            txtEmail.Text = string.Empty;
-            txtCity.Text = string.Empty;
-            txtCountry.Text = string.Empty;
-            txtPhone.Text = string.Empty;
-            txtUserName.Text = string.Empty;
-            //txtPassword.Text = string.Empty;
-        }
+        //private void ClearForm()
+        //{
+        //    txtFName.Text = string.Empty;
+        //    txtLName.Text = string.Empty;
+        //    txtAddress1.Text = string.Empty;
+        //    txtAddress2.Text = string.Empty;
+        //    txtEmail.Text = string.Empty;
+        //    txtCity.Text = string.Empty;
+        //    txtCountry.Text = string.Empty;
+        //    txtPhone.Text = string.Empty;
+        //    txtUserName.Text = string.Empty;
+        //    //txtPassword.Text = string.Empty;
+        //}
         
 
 
@@ -244,31 +246,6 @@ namespace RainforestBooks
         {
             EditDetails();
         }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            //using (var _db = new Context())
-            //{
-
-            //    Customer user = (from c in _db.Customers
-            //                     where c.UserName == txtUserName.Text
-            //                     select c).FirstOrDefault();
-
-            //    CurrentUser = user;
-
-            //    txtFName.Text = user.FirstName;
-            //    txtLName.Text = user.LastName;
-            //    txtCountry.Text = user.Country;
-            //    txtCity.Text = user.City;
-            //    txtAddress1.Text = user.Address1;
-            //    txtAddress2.Text = user.Address2;
-            //    txtEmail.Text = user.Email;
-            //    txtPhone.Text = user.Phone;
-            //    txtUserName.Text = user.UserName;
-            //}
-            //txtPassword.Text = customer.UserPassword.ToString();
-        }
-
 
 
         protected void chckChange_CheckedChanged1(object sender, EventArgs e)

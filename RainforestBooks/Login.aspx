@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="RainforestBooks.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Rainforest Books Login</title>
+    <meta name="keywords" content="Rainforest Books Login" />
     <meta name="login" content="Rainforest books allows users to login in order to order items or add reviews" />
 </asp:Content>
 

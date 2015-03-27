@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminView.Master" AutoEventWireup="true" CodeBehind="EditItem.aspx.cs" Inherits="RainforestBooks.EditItem" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Edit Item</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">

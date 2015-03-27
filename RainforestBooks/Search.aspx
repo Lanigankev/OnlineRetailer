@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="RainforestBooks.Search" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Rainforest Books Search</title>
+    <meta name="keywords" content="Search Rainforest Books" />
     <meta name="Search" content="Rainforest books allows users to search for specific books/genres/accessories" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
