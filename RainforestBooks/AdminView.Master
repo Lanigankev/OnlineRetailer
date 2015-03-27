@@ -48,7 +48,7 @@
                 <a href="Search.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin Tools<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="ManageProducts.aspx">Manage Product</a></li>
-                  <li><a href="#">View Product List</a></li>
+                  <li><a href="ViewOrders.aspx">View Order List</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Customer Options</li>
                   <li><a href="#">View Order History</a></li>

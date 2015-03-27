@@ -141,10 +141,9 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
-    <Content Include="AjaxCompleteSrv.svc" />
-    <Content Include="AutoComplete.asmx" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="Book.aspx" />
+    <Content Include="CallOrdersJSON.svc" />
     <Content Include="Content\BookCovers\bootstrap.jpg" />
     <Content Include="Content\BookCovers\gemini.jpg" />
     <Content Include="Content\BookCovers\grand.jpg" />
@@ -225,14 +224,13 @@
     <Content Include="AdminView.Master" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Register.aspx" />
-    <Content Include="Scripts\AutoCompleteAjax.js" />
+    <Content Include="Scripts\CallOrderAjax.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\jquery.autocomplete.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\OwnJavaScript.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -257,6 +255,7 @@
     <Content Include="Search.aspx" />
     <Content Include="Stylesheets\reset.css" />
     <Content Include="Stylesheets\StyleSheet.css" />
+    <Content Include="ViewOrders.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -286,9 +285,6 @@
     </Compile>
     <Compile Include="AdminView.Master.designer.cs">
       <DependentUpon>AdminView.Master</DependentUpon>
-    </Compile>
-    <Compile Include="AjaxCompleteSrv.svc.cs">
-      <DependentUpon>AjaxCompleteSrv.svc</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
@@ -328,16 +324,15 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="AutoComplete.asmx.cs">
-      <DependentUpon>AutoComplete.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Book.aspx.cs">
       <DependentUpon>Book.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Book.aspx.designer.cs">
       <DependentUpon>Book.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CallOrdersJSON.svc.cs">
+      <DependentUpon>CallOrdersJSON.svc</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -382,6 +377,7 @@
     <Compile Include="Models\AdminSession.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Context.cs" />
+    <Compile Include="Models\CustomerOrderProduct.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderProduct.cs">
       <SubType>Code</SubType>
@@ -436,6 +432,13 @@
     </Compile>
     <Compile Include="UserView.Master.designer.cs">
       <DependentUpon>UserView.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOrders.aspx.cs">
+      <DependentUpon>ViewOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewOrders.aspx.designer.cs">
+      <DependentUpon>ViewOrders.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
