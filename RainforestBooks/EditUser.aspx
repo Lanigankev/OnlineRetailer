@@ -1,13 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditUser.aspx.cs" Inherits="RainforestBooks.EditUser" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserView.Master" AutoEventWireup="true" CodeBehind="EditUser.aspx.cs" Inherits="RainforestBooks.EditUser" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <div class="row">
+    <div class="row">
         
 
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="panel panel-heading"><h1 class="panel-title myTitle">Registration</h1>
+            <div class="panel panel-heading"><h1 class="panel-title myTitle">Edit Account</h1>
             </div>
         <div class ="panel panel-default ">
             <div class ="panel panel-body transparancy">
@@ -64,30 +64,27 @@
   <div class="form-group textBox">
       
     <label for="txtUserName" class="col-sm-2 control-label">User Name</label>
-      <asp:TextBox ID="txtUserName" runat="server" OnTextChanged="txtUserName_TextChanged"></asp:TextBox>
+      <asp:TextBox ID="txtUserName" runat="server" OnTextChanged="txtUserName_TextChanged" ReadOnly="True"></asp:TextBox>
   </div>
                 <div class="form-group textBox">
                     <asp:CheckBox ID="chckChange" runat="server" Text="Change Password" AutoPostBack="true" OnCheckedChanged="chckChange_CheckedChanged1" />
   </div>
 
-  <div class="form-group textBox">
-      <asp:Label ID="lblOldPassword" runat="server" Text="Old Password" Visible="False"></asp:Label>
-    <%--<label for="txtPassword" class="col-sm-2 control-label">Old Password</label>--%>
+  <%--<div class="form-group textBox">
+      <asp:Label ID="lblOldPassword" CssClass="col-sm-2 control-label" runat="server" Text="Old Password" Visible="False" Font-Bold="True"></asp:Label>
       <asp:TextBox ID="txtOldPassword" runat="server" Visible="False"></asp:TextBox>
        
         <asp:Label ID="lblOldPasswordWarning" runat="server" Text="** Incorrect password" Visible="False" ForeColor="Red"></asp:Label>
-       
-  </div>
+       </div>--%>
 
         <div class="form-group textBox">
-            <asp:Label ID="lblNewPassword" runat="server" Text="New Password" Visible="False"></asp:Label>
-    <%--<label for="txtNewPassword" class="col-sm-2 control-label">New Password</label>--%>
-      <asp:TextBox ID="txtNewPassword" runat="server" Visible="False"></asp:TextBox>
+            <asp:Label ID="lblNewPassword" CssClass="col-sm-2 control-label" runat="server" Text="New Password" Visible="False" Font-Bold="True"></asp:Label>
+      <asp:TextBox ID="txtNewPassword" runat="server" Visible="False" TextMode="Password"></asp:TextBox>
        
   </div>
                <div class="form-group textBox">
-                   <asp:Label ID="lblConfirm" runat="server" Text="Confirm Password" Visible="False"></asp:Label>
-    <%--<label for="txtConfirm" class="col-sm-2 control-label">Confirm Password</label--%>&nbsp;<asp:TextBox ID="txtConfirm" runat="server" Visible="False"></asp:TextBox>
+                   <asp:Label ID="lblConfirm" CssClass="col-sm-2 control-label" runat="server" Text="Confirm Password" Visible="False" Font-Bold="True"></asp:Label>
+                    <asp:TextBox ID="txtConfirm" runat="server" Visible="False" TextMode="Password"></asp:TextBox>
         <asp:Label ID="lblConfirmWarning" runat="server" Text="** Passwords must match" Visible="False" ForeColor="Red"></asp:Label>
   </div>
 
@@ -99,9 +96,6 @@
   <div class="form-group textBox">
         <asp:Button CssClass="btn btn-success btn-lg" ID="btnRegister" runat="server" OnClick="Button1_Click" Text="Update" />
   </div>
-   <div class="form-group textBox">
-           <asp:Button CssClass="btn btn-success btn-lg" ID="btnSearch" runat="server" OnClick="Button2_Click" Text="Search" />
-   </div>
    
                     </div>
                     </div>

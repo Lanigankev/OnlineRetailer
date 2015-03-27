@@ -12,7 +12,10 @@ namespace RainforestBooks
     public partial class Book : System.Web.UI.Page
     {
         private int ProductId { get; set; }
-        public int rating { get; set; }
+        public int Rating { get; set; }
+        //Has the current site user reviewed this product
+        private bool HasReviewed { get; set; }
+
         protected void Page_PreInit(object sender, EventArgs e)
         {
             if (UserSession.ReturnUserId() != -1)
@@ -37,28 +40,57 @@ namespace RainforestBooks
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int productId;
+            bool isValid = int.TryParse(Request.QueryString["id"], out productId);
+            if (isValid)
+            {
+                ProductId = productId;
+            }
+            
             if (UserSession.ReturnUserId() != -1)
             {
                 btnAddReview.Visible = true;
+                btnAddToCart.Visible = true;
+                using (var db = new Context())
+                {
+                    int customerId = UserSession.ReturnUserId();
+                    var review = (from r in db.Reviews
+                                  where r.CustomerId == customerId
+                                  && r.ProductId == ProductId
+                                  select r).FirstOrDefault();
+                    if (review != null)
+                    {
+                        HasReviewed = true;
+                        btnDeleteReview.Visible = true;
+                    }
+                }
                 
             }
             else if (AdminSession.IsAdminSession() == true)
             {
-                btnAddReview.Visible = true;
+                btnAddReview.Visible = false;
                 btnAddToCart.Visible = false;
                 
             }
             else
             {
-
+                btnDeleteReview.Visible = false;
                 btnAddReview.Visible = false;
+                btnDeleteReview.Visible = false;
 
             }
+
+            
+            lblWarning.Visible = false;
+            
+            rdo1.Visible = false;
+            rdo2.Visible = false;
+            rdo3.Visible = false;
+            rdo4.Visible = false;
+            rdo5.Visible = false;
             txtReview.Visible = false;
             btnSubmitReview.Visible = false;
-            int productId;
-            bool isValid = int.TryParse(Request.QueryString["id"], out productId);
-            ProductId = productId;
+            
         }
 
         public Product GetProduct([QueryString("id")] int? QueryProductId)
@@ -73,16 +105,40 @@ namespace RainforestBooks
             return prod;
         }
 
-        public IQueryable<Product> GetProductReview([QueryString("id")] int? QueryProductId)
+        public IQueryable<ProductReviewCustomer> GetProductReview([QueryString("id")] int? QueryProductId)
         {
             var db = new RainforestBooks.Models.Context();
-            IQueryable<Product> query = db.Products;
-            if (QueryProductId.HasValue && QueryProductId > 0)
 
+            if (QueryProductId.HasValue && QueryProductId > 0)
             {
-                query = query.Where(product => product.ProductId == QueryProductId);
+                double averageStars=0;
+                int length;
+                IQueryable<ProductReviewCustomer> query = from c in db.Customers
+                            join r in db.Reviews
+                            on c.CustomerId equals r.CustomerId
+                            join p in db.Products
+                            on r.ProductId equals p.ProductId
+                            where p.ProductId == QueryProductId
+                            select new ProductReviewCustomer { thisProduct=p,thisCustomer =c, thisReview = r };
+                if (query != null)
+                {
+                    foreach (var item in query)
+                    {
+                        averageStars += item.thisReview.Stars;
+                    }
+                    length = query.Count();
+                    averageStars = averageStars / length;
+                    averageStars = Math.Round(averageStars, 1);
+                    lblReviewAverage.Text = string.Format("Average Rating: {0.}") + averageStars;
+                    
+                }
+                return query;
             }
-            return query;
+            else
+            {
+                return null;
+            }
+            
         }
 
         public IQueryable<Review> GetReview([QueryString("id")] int? ProductId)
@@ -92,10 +148,11 @@ namespace RainforestBooks
             if (ProductId.HasValue && ProductId > 0)
             {
                 query = query.Where(review => review.ProductId == ProductId);
+                return query;
             }
-            return query;
+            return query=null;
         }
-        public void Rating()
+        public void GetRating()
         {
 
             if (rdo1.Checked)
@@ -104,7 +161,7 @@ namespace RainforestBooks
                 rdo3.Checked = false;
                 rdo4.Checked = false;
                 rdo5.Checked = false;
-                rating = 1;
+                Rating = 1;
             }
             else if (rdo2.Checked)
             {
@@ -112,7 +169,7 @@ namespace RainforestBooks
                 rdo3.Checked = false;
                 rdo4.Checked = false;
                 rdo5.Checked = false;
-                rating = 2;
+                Rating = 2;
             }
             else if (rdo3.Checked)
             {
@@ -120,7 +177,7 @@ namespace RainforestBooks
                 rdo1.Checked = false;
                 rdo4.Checked = false;
                 rdo5.Checked = false;
-                rating = 3;
+                Rating = 3;
             }
             else if (rdo4.Checked)
             {
@@ -128,7 +185,7 @@ namespace RainforestBooks
                 rdo3.Checked = false;
                 rdo1.Checked = false;
                 rdo5.Checked = false;
-                rating = 4;
+                Rating = 4;
             }
             else if (rdo5.Checked)
             {
@@ -136,36 +193,58 @@ namespace RainforestBooks
                 rdo3.Checked = false;
                 rdo4.Checked = false;
                 rdo1.Checked = false;
-                rating = 5;
+                Rating = 5;
             }
            
         }
         protected void btnSubmitReview_Click(object sender, EventArgs e)
         {
             int customerId = UserSession.ReturnUserId();
-            using (var db = new Context())
+           
+            using(var db = new Context())
             {
-                string reviewText;
-                reviewText = txtReview.Text;
-                Review review = new Review();
-                review.CustomerId = customerId;
-                review.ProductId = ProductId;
-                review.ReviewText = reviewText;
-                review.Stars = rating;
 
-                db.Reviews.Add(review);
-                db.SaveChanges();
             }
-            Response.Redirect(Request.RawUrl);
+            if (rdo1.Checked || rdo2.Checked || rdo3.Checked || rdo4.Checked || rdo5.Checked && !HasReviewed)
+            {
+                lblWarning.Visible = false;
+                
+
+                GetRating();
+
+                using (var db = new Context())
+                {
+                    string reviewText;
+                    reviewText = txtReview.Text;
+                    Review review = new Review();
+                    review.CustomerId = customerId;
+                    review.ProductId = ProductId;
+                    review.ReviewText = reviewText;
+                    review.Stars = Rating;
+
+                    db.Reviews.Add(review);
+                    db.SaveChanges();
+                }
+
+                Response.Redirect(Request.RawUrl);
+            }
+            else 
+            {
+                lblWarning.Visible = true;
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            txtReview.Text = UserSession.ReturnUserId().ToString();
+            
             txtReview.Visible = true;
             btnSubmitReview.Visible = true;
-            //txtReview.Text = (int)Session["UserView"] + Environment.NewLine + int.Parse(Request.QueryString["id"]);
-           
+            rdo1.Visible = true;
+            rdo2.Visible = true;
+            rdo3.Visible = true;
+            rdo4.Visible = true;
+            rdo5.Visible = true;
+
         }
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
@@ -178,6 +257,27 @@ namespace RainforestBooks
             {
                 Response.Redirect("Login.aspx");
             }
+        }
+
+        protected void btnDeleteReview_Click(object sender, EventArgs e)
+        {
+            if (HasReviewed)
+            { 
+            using(var db = new Context())
+            {
+                int customerId = UserSession.ReturnUserId();
+
+                Review review = (from r in db.Reviews
+                                where r.CustomerId == customerId
+                                && r.ProductId == ProductId
+                                select r).FirstOrDefault();
+                db.Reviews.Remove(review);
+                db.SaveChanges();
+
+            }
+            Response.Redirect(Request.RawUrl);
+            }
+
         }
         
     }

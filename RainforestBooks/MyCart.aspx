@@ -47,13 +47,13 @@
             <div class="row">
                 <div class="col-md-6"></div>
                 <div class="col-md-2">
-                    <asp:Button ID="btnClearStoredCart" runat="server" Text="Clear Stored Cart" OnClick="btnClearStoredCart_Click" />
+                    <asp:Button ID="btnClearStoredCart" CssClass="btn btn-danger btn-lg" runat="server" Text="Clear Stored Cart" OnClick="btnClearStoredCart_Click" />
                 </div>
                 <div class="col-md-2">
-                    <asp:Button ID="btnStoreCart" runat="server" Text="Save Cart Items" OnClick="btnStoreCart_Click" />
+                    <asp:Button ID="btnStoreCart" CssClass="btn btn-success btn-lg" runat="server" Text="Save Cart Items" OnClick="btnStoreCart_Click" />
                 </div>
                  <div class="col-md-2">
-            <asp:Button ID="btnPurchase" runat="server" Text="Submit Purchase" OnClick="btnPurchase_Click" />
+            <asp:Button ID="btnPurchase" CssClass="btn btn-success btn-lg" runat="server" Text="Submit Purchase" OnClick="btnPurchase_Click" />
                  </div>
             </div>
             </div>

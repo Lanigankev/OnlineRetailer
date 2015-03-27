@@ -14,7 +14,7 @@
                         <p><label for="txtName" class="control-label">Name</label></p>
       
                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-                        <asp:Label ID="lblProduct" runat="server" Visible="False"></asp:Label>
+                        <asp:Label ID="lblProduct" runat="server" Visible="False" ForeColor="Red"></asp:Label>
         
                     <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
         
@@ -23,7 +23,7 @@
                     <div class="form-group">
                         <p><label for="txtStock" class="control-label">Amount in Stock</label></p>
                         <asp:TextBox ID="txtStock" runat="server"></asp:TextBox>
-                        <asp:Label ID="lblStock" runat="server" Text="** Valid number not entered" Visible="False"></asp:Label>
+                        <asp:Label ID="lblStock" runat="server" Text="** Valid number not entered" Visible="False" ForeColor="Red"></asp:Label>
                     </div>
   
         
@@ -31,13 +31,13 @@
                 <div class="form-group">
                         <p><label for="txtCost" class="control-label">Cost</label></p>
                         <asp:TextBox ID="txtCost" runat="server"></asp:TextBox>
-                        <asp:Label ID="lblCost" runat="server" Visible="False"></asp:Label>
+                        <asp:Label ID="lblCost" runat="server" Visible="False" ForeColor="Red"></asp:Label>
                 </div>
   
                 <div class="form-group">
                      <p><label for="txtDescription" class="control-label">Description</label></p>      
                      <asp:TextBox ID="txtDescription" runat="server" Height="67px" TextMode="MultiLine" Width="234px"></asp:TextBox>
-                     <asp:Label ID="lblDescription" runat="server" Text="** Description not entered" Visible="False"></asp:Label>
+                     <asp:Label ID="lblDescription" runat="server" Text="** Description not entered" Visible="False" ForeColor="Red"></asp:Label>
                 </div>
  
               <%--<div class="form-group">

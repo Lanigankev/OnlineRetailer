@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="RainforestBooks.Register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <meta name="User Register" content="Rainforest books provides a book delivery service with free postage and packaging, allowing users to register their details." />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="RainforestBooks.Search" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <meta name="Search" content="Rainforest books allows users to search for specific books/genres/accessories" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="panel panel-default transparancy">
@@ -41,7 +42,7 @@
             <div class="col-sm-4 col-md-3">
                 <p>Price: &euro;<%#:Item.Cost %></p>
                 
-                <asp:LinkButton CssClass="btn btn-primary" ID="btnAddToCart" runat="server" OnClick="btnAddToCart_Click" CommandArgument="<%#:Item.ProductId %>" Text="Add to Cart" CommandName="AddToCart" />
+                <asp:LinkButton CssClass="btn btn-success" ID="btnAddToCart" runat="server" OnClick="btnAddToCart_Click" CommandArgument="<%#:Item.ProductId %>" Text="Add to Cart" CommandName="AddToCart" />
             </div>
                 </div><!--/inner row-->
                 </div>

@@ -166,33 +166,6 @@ namespace RainforestBooks {
         protected global::System.Web.UI.WebControls.CheckBox chckChange;
         
         /// <summary>
-        /// lblOldPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOldPassword;
-        
-        /// <summary>
-        /// txtOldPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
-        
-        /// <summary>
-        /// lblOldPasswordWarning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOldPasswordWarning;
-        
-        /// <summary>
         /// lblNewPassword control.
         /// </summary>
         /// <remarks>
@@ -245,14 +218,5 @@ namespace RainforestBooks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegister;
-        
-        /// <summary>
-        /// btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
     }
 }

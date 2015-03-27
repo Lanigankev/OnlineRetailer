@@ -52,20 +52,14 @@
               
 
             <ul class="nav navbar-nav navbar-right">
-                <li><div class="input-group searchDiv">
-                    
-                    <asp:TextBox CssClass="form-control" placeholder="Search for..." ID="txtSearch" runat="server" Width="230px"></asp:TextBox>
-                    <span class="input-group-btn">
-                    <asp:Button CssClass="btn btn-default" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="70px" />
-                        </span>
-
-                        </div></li>
+                <li></li>
               <li><a href="MyCart.aspx">My Shopping Cart   <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
               <li class="dropdown">
                 <a href="Search.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account<span class="caret"></span></a>
                 <ul class="dropdown-menu transparancy" role="menu">
                   <li class="dropdown-header">Account</li>
                   <li><a href="EditUser.aspx">Edit My Account</a></li>
+                    
                   <li><asp:Button CssClass="btn btn-link myDropSpace" ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click"></asp:Button></li>
                 </ul>
               </li>  
@@ -77,11 +71,14 @@
       <!-- Main component for a primary marketing message or call to action -->
         <div class="panel panel-default transparancy">
              <div class="panel-body">
-                 
-                 <%--<asp:TextBox ID="txtSearch" runat="server" Width="243px"></asp:TextBox>
-                 <asp:Button class="searchButton" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="71px" />--%>
-                 
-                 
+           <div class="input-group">
+                    
+                    <asp:TextBox CssClass="form-control" placeholder="Search for..." ID="txtSearch" runat="server"></asp:TextBox>
+                    <span class="input-group-btn">
+                    <asp:Button CssClass="btn btn-default" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search"/>
+                        </span>
+                        </div>     
+                                 
             </div>
         </div>
 
@@ -92,7 +89,31 @@
 
         
             <footer class="well well-lg transparancy">
-                <p>Footer</p>
+                 <div class="row">
+                    <div class="col-md-3">
+                        <p>Rainforest Books</p>
+                        <p>About</p>
+                        <p>Products</p>
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-1">
+                        <a href="http://www.facebook.com"><img class="icon img-responsive img-circle" src="Images/facebookicon.png" /></a></div>
+                    <div class="col-md-2">
+                        <a href="http://www.twitter.com"><img class="icon img-responsive img-circle" src="Images/twittericon.png" /></a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        <p>&copy;Rainforest Books</p>
+                    </div>
+                </div>
             </footer>
         </div>
    
