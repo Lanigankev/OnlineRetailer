@@ -1,9 +1,13 @@
+***************************
+if you want to clear all tables
+
 drop table tblOrderProducts
 drop table tblReviews
 drop table tblOrders
+drop table tblStoredCarts
 drop table tblCustomers
 drop table tblProducts
-drop table tblAdmins
+**********************************
 
 CREATE TABLE tblCustomers
 (CustomerId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,

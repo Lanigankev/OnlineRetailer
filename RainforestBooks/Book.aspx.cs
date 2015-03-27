@@ -108,34 +108,51 @@ namespace RainforestBooks
         public IQueryable<ProductReviewCustomer> GetProductReview([QueryString("id")] int? QueryProductId)
         {
             var db = new RainforestBooks.Models.Context();
-
+            
             if (QueryProductId.HasValue && QueryProductId > 0)
             {
                 double averageStars=0;
                 int length;
-                IQueryable<ProductReviewCustomer> query = from c in db.Customers
-                            join r in db.Reviews
-                            on c.CustomerId equals r.CustomerId
-                            join p in db.Products
-                            on r.ProductId equals p.ProductId
-                            where p.ProductId == QueryProductId
-                            select new ProductReviewCustomer { thisProduct=p,thisCustomer =c, thisReview = r };
-                if (query != null)
+                try
                 {
-                    foreach (var item in query)
+                    IQueryable<ProductReviewCustomer> query = from c in db.Customers
+                                                              join r in db.Reviews
+                                                              on c.CustomerId equals r.CustomerId
+                                                              join p in db.Products
+                                                              on r.ProductId equals p.ProductId
+                                                              where p.ProductId == QueryProductId
+                                                              select new ProductReviewCustomer { thisProduct = p, thisCustomer = c, thisReview = r };
+                    if (query != null)
                     {
-                        averageStars += item.thisReview.Stars;
+                        foreach (var item in query)
+                        {
+                            averageStars += item.thisReview.Stars;
+                        }
+                        length = query.Count();
+                        if (averageStars != 0)
+                        {
+                            averageStars = averageStars / length;
+                            averageStars = Math.Round(averageStars, 1);
+
+                            lblReviewAverage.Text = string.Format("Average Rating: {0}", averageStars);
+                        }
+                        else
+                        {
+                            lblReviewAverage.Text = string.Format("Rate this book!");
+                        }
                     }
-                    length = query.Count();
-                    averageStars = averageStars / length;
-                    averageStars = Math.Round(averageStars, 1);
-                    lblReviewAverage.Text = string.Format("Average Rating: {0}", averageStars);
-                    
+                    return query;
                 }
-                return query;
+                catch(Exception ex)
+                {
+                    return null;
+                    throw ex;
+                }
+                
             }
             else
             {
+                Response.Redirect("Default.aspx", true);
                 return null;
             }
             

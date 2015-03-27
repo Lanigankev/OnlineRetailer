@@ -22,7 +22,7 @@
                      <div class="col-sd-12 col-md-6">
   <h2 id="itemname"><%#: Item.ProductTitle %></h2>
   <h4>Description:</h4><p id="itemdescription"><%#:Item.ProductDescription %></p>
-        <h4>Rating:<span id="itemrating"><% %></span></h4>
+        
                  </div>
 
                      </ItemTemplate>
