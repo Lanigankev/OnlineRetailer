@@ -82,7 +82,7 @@ namespace RainforestBooks.Models
             }
             else
             {
-                message = "Please enter phone in XXX-XXXXXXX or XX-XXXXXX format" + Environment.NewLine;
+                message = "** Please enter phone in XXX-XXXXXXX or XX-XXXXXX format" + Environment.NewLine;
             }
 
 

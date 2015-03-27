@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="RainforestBooks.Register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <meta name="User Register" content="Rainforest books provides a book delivery service with free postage and packaging, allowing users to register their details." />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
@@ -18,48 +19,48 @@
             <div class="form-group textBox">
     <label for="txtFName" class="col-sm-2 control-label">First Name</label>
       <asp:TextBox ID="txtFName" runat="server"></asp:TextBox>
-          <asp:Label ID="lblFName" runat="server" Visible="False">** First name must not be empty</asp:Label>
+          <asp:Label ID="lblFName" runat="server" Visible="False" ForeColor="Red">** First name must not be empty</asp:Label>
   </div>
 
         <div class="form-group textBox">
     <label for="txtLName" class="col-sm-2 control-label">Last Name</label>
       <asp:TextBox ID="txtLName" runat="server"></asp:TextBox>
-          <asp:Label ID="lblLName" runat="server" Text="** Last name must not be empty" Visible="False"></asp:Label>
+          <asp:Label ID="lblLName" runat="server" Text="** Last name must not be empty" Visible="False" ForeColor="Red"></asp:Label>
   </div>
         <div class="form-group textBox">
     <label for="txtAddress1" class="col-sm-2 control-label">Address1</label>
       <asp:TextBox ID="txtAddress1" runat="server"></asp:TextBox>
-          <asp:Label ID="lblAddress1" runat="server" Text="** Address must not be empty" Visible="False"></asp:Label>
+          <asp:Label ID="lblAddress1" runat="server" Text="** Address must not be empty" Visible="False" ForeColor="Red"></asp:Label>
   </div>
 
         <div class="form-group textBox">
     <label for="txtAddress2" class="col-sm-2 control-label">Address2</label>
       <asp:TextBox ID="txtAddress2" runat="server"></asp:TextBox>
-          <asp:Label ID="lblAddress2" runat="server" Text="** Address must not be empty" Visible="False"></asp:Label>
+          <asp:Label ID="lblAddress2" runat="server" Text="** Address must not be empty" Visible="False" ForeColor="Red"></asp:Label>
   </div>
 
         <div class="form-group textBox">
     <label for="txtCity" class="col-sm-2 control-label">City</label>    
       <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
-          <asp:Label ID="lblCity" runat="server" Text="** City must not be empty" Visible="False"></asp:Label>   
+          <asp:Label ID="lblCity" runat="server" Text="** City must not be empty" Visible="False" ForeColor="Red"></asp:Label>   
   </div>
 
         <div class="form-group textBox">
     <label for="txtCountry" class="col-sm-2 control-label">Country</label>
       <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
-          <asp:Label ID="lblCountry" runat="server" Text="** Country must not be empty" Visible="False"></asp:Label>
+          <asp:Label ID="lblCountry" runat="server" Text="** Country must not be empty" Visible="False" ForeColor="Red"></asp:Label>
   </div>
 
         <div class="form-group textBox">
     <label for="txtEmail" class="col-sm-2 control-label">Email</label>
       <asp:TextBox ID="txtEmail" runat="server" OnTextChanged="txtEmail_TextChanged"></asp:TextBox>
-          <asp:Label ID="lblEmail" runat="server" Visible="False"></asp:Label>
+          <asp:Label ID="lblEmail" runat="server" Visible="False" ForeColor="Red"></asp:Label>
   </div>
 
         <div class="form-group textBox">
     <label for="txtPhone" class="col-sm-2 control-label">Phone</label>
       <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
-          <asp:Label ID="lblPhone" runat="server" Visible="False"></asp:Label>
+          <asp:Label ID="lblPhone" runat="server" Visible="False" ForeColor="Red"></asp:Label>
   </div>
             
                 <hr />
@@ -67,7 +68,7 @@
   <div class="form-group textBox">
     <label for="txtUserName" class="col-sm-2 control-label">User Name</label>
       <asp:TextBox ID="txtUserName" runat="server" OnTextChanged="txtUserName_TextChanged"></asp:TextBox>
-          <asp:Label ID="lblUserName" runat="server" Visible="False"></asp:Label>
+          <asp:Label ID="lblUserName" runat="server" Visible="False" ForeColor="Red"></asp:Label>
   </div>
 
   <div class="form-group textBox">
@@ -79,7 +80,7 @@
         <div class="form-group textBox">
     <label for="txtPassword" class="col-sm-2 control-label">Confirm Password</label>
       <asp:TextBox ID="txtConfirm" runat="server" TextMode="Password"></asp:TextBox>
-        <asp:Label ID="lblConfirm" runat="server" Text="** Passwords must match" Visible="False"></asp:Label>
+        <asp:Label ID="lblConfirm" runat="server" Text="** Passwords must match" Visible="False" ForeColor="Red"></asp:Label>
   </div>
 
             <hr />

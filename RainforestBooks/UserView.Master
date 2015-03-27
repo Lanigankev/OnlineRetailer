@@ -58,6 +58,7 @@
                 <ul class="dropdown-menu transparancy" role="menu">
                   <li class="dropdown-header">Account</li>
                   <li><a href="EditUser.aspx">Edit My Account</a></li>
+                    
                   <li><asp:Button CssClass="btn btn-link myDropSpace" ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click"></asp:Button></li>
                 </ul>
               </li>  
