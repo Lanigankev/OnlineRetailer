@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Net;
+using System.Net.Mail;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -127,10 +129,17 @@ namespace RainforestBooks
         {
             if (ShoppingCart.Instance.CartItems.Count != 0)
             {
+                decimal totalOrderCost=0;
+                foreach(CartItem item in ShoppingCart.Instance.CartItems)
+                {
+                    totalOrderCost += item.TotalPrice;
+
+                }
                 Order order = new Order();
                 order.CustomerId = UserSession.ReturnUserId();
                 order.OrderPlacedDate = DateTime.Now.Date;
                 order.TotalNoItems = ShoppingCart.Instance.CartItems.Count();
+                order.TotalOrderCost = totalOrderCost;
                 order.AdditionalInfo = "Some stuff";
                 try
                 {
@@ -171,6 +180,10 @@ namespace RainforestBooks
                             }
                         }
                         db.SaveChanges();
+                        
+                        SendConfirmationEmail(UserSession.ReturnUserObj(), ShoppingCart.Instance.CartItems);
+                        ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Order has been received');", true);
+                        ClearAllCart();
                     }
                 }
                 catch (Exception)
@@ -234,7 +247,12 @@ namespace RainforestBooks
 
         protected void btnClearStoredCart_Click(object sender, EventArgs e)
         {
-            
+
+            ClearAllCart();
+        }
+
+        private void ClearAllCart()
+        {
             int userId;
             userId = UserSession.ReturnUserId();
             string cookieId = userId.ToString();
@@ -258,11 +276,54 @@ namespace RainforestBooks
                     cart.XmlList = sw.ToString();
                     db.SaveChanges();
                 }
-                
+
             }
 
             ShoppingCart.Instance.CartItems.Clear();
             Response.Redirect(Request.RawUrl);
+        }
+        private void SendConfirmationEmail(Customer user, List<CartItem> order)
+        {
+            string sender = "rainforestbooksweb@gmail.com";
+            string email = "lanigan.kev@gmail.com";//user.Email;
+
+            string message = string.Format("Hi "+ user.FirstName+"," + Environment.NewLine
+                                                     + Environment.NewLine+"You have successfully purchased:"
+                                                     + Environment.NewLine +
+                                                     "Title \t Quantity \t Unit Price \t Total Price"+ Environment.NewLine );
+
+            foreach(CartItem item in order)
+            {
+                message+= item.ToString() + Environment.NewLine;
+            }
+            message += string.Format("Thank you for shopping at rainforest books");
+            
+                                          
+
+            using (MailMessage mm = new MailMessage(sender, email))
+            {
+                mm.Subject = "Your order details";
+                mm.Body = message;
+                
+                mm.IsBodyHtml = false;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential NetworkCred = new NetworkCredential(sender, "kevinsimon");
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                try
+                {
+                    smtp.Send(mm);
+                }
+                catch(Exception ex)
+                {
+                
+                }
+                   
+                //ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Email sent.');", true);
+            }
         }
         }
     }

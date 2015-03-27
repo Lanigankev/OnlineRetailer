@@ -25,6 +25,7 @@ CREATE TABLE tblOrders
 (OrderId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 OrderPlacedDate DATETIME2 NOT NULL,
 TotalNoItems INT NOT NULL,
+TotalOrderCost DECIMAL NOT NULL,
 AdditionalInfo NVARCHAR (500),
 DateOrderCompleted DATETIME2,
 CustomerId INT NOT NULL,

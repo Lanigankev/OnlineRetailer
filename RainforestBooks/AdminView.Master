@@ -13,8 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     
     <link href="Stylesheets/Stylesheet.css" rel="stylesheet" />
-    <script src="Scripts/OwnJavaScript.js"></script>
-    <script src="Scripts/jquery.autocomplete.js"></script>
+    <script src="Scripts/CallOrderAjax.js"></script>
+    
  
 
 </head>

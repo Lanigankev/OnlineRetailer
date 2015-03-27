@@ -129,7 +129,7 @@ namespace RainforestBooks
                     length = query.Count();
                     averageStars = averageStars / length;
                     averageStars = Math.Round(averageStars, 1);
-                    lblReviewAverage.Text = string.Format("Average Rating: {0.}") + averageStars;
+                    lblReviewAverage.Text = string.Format("Average Rating: {0}", averageStars);
                     
                 }
                 return query;

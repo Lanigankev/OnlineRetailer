@@ -81,6 +81,10 @@ namespace RainforestBooks.Models
         }
         
     }
+    public override string ToString()
+    {
+        return string.Format("{0} \t{1} \t{2} \t{3}", this.Title, this.Quantity, this.UnitPrice, this.TotalPrice);
+    }
     }
 
     

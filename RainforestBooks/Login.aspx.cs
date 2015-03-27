@@ -46,7 +46,7 @@ namespace RainforestBooks
             Customer user = (from c in db.Customers
                         where c.UserName == customer.UserName
                         && c.UserPassword == customer.UserPassword
-                        select c).First();
+                        select c).FirstOrDefault();
 
             if (user != null && user.AdminRights == 0)
             {

@@ -12,8 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     
     <link href="Stylesheets/Stylesheet.css" rel="stylesheet" />
-    <script src="Scripts/OwnJavaScript.js"></script>
-    <script src="Scripts/jquery.autocomplete.js"></script>
+    
 
 </head>
 <body id="bg">
@@ -72,12 +71,14 @@
              <div class="panel-body">
            <div class="input-group">
                     
-                    <asp:TextBox CssClass="form-control" placeholder="Search for..." ID="txtSearch" runat="server"></asp:TextBox>
-                    <span class="input-group-btn">
-                    <asp:Button CssClass="btn btn-default" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search"/>
-                        </span>
-                        </div>     
-                                 
+            <asp:TextBox CssClass="form-control" placeholder="Search for..." ID="txtSearch" runat="server"></asp:TextBox>
+                <span class="input-group-btn">
+            <asp:Button CssClass="btn btn-default" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search"/>
+                </span>
+         </div>     
+                          
+                 
+                        
             </div>
         </div>
 

@@ -16,11 +16,19 @@ namespace RainforestBooks.Models
 
         static public void Login(int userId)
         {
-            if (HttpContext.Current.Session["UserSession"] == null)
+            using (var db = new Context())
             {
-                HttpContext.Current.Session["UserSession"] = userId;
-                
+                Customer customer = (from c in db.Customers
+                                    where c.CustomerId == userId
+                                    select c).FirstOrDefault();
+
+                if (HttpContext.Current.Session["UserSession"] == null)
+                {
+                    HttpContext.Current.Session["UserSession"] = customer;
+
+                }
             }
+            
             
         }
         static public int ReturnUserId()
@@ -29,7 +37,8 @@ namespace RainforestBooks.Models
 
             if (HttpContext.Current.Session["UserSession"] != null)
             {
-                retVal = (int)HttpContext.Current.Session["UserSession"];
+                Customer customer = (Customer)HttpContext.Current.Session["UserSession"];
+                retVal = customer.CustomerId;
             }
             else
             {
@@ -37,6 +46,40 @@ namespace RainforestBooks.Models
             }
             return retVal;
         }
+
+         static public string ReturnUserEmail()
+        {
+            string retVal;
+
+            if (HttpContext.Current.Session["UserSession"] != null)
+            {
+                Customer customer = (Customer)HttpContext.Current.Session["UserSession"];
+                retVal = customer.Email;
+            }
+            else
+            {
+                retVal = null;
+            }
+            return retVal;
+        }
+
+        static public Customer ReturnUserObj()
+        {
+            Customer retVal;
+
+            if (HttpContext.Current.Session["UserSession"] != null)
+            {
+                Customer customer = (Customer)HttpContext.Current.Session["UserSession"];
+                retVal = customer;
+            }
+            else
+            {
+                retVal = null;
+            }
+            return retVal;
+        }
+
+
 
         static public void LogOut()
         {

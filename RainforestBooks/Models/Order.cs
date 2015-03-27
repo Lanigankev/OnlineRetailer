@@ -14,6 +14,7 @@ namespace RainforestBooks.Models
         public int OrderId  { get; set; }
         public DateTime OrderPlacedDate { get; set; }
         public int TotalNoItems { get; set; }
+        public decimal TotalOrderCost { get; set; }
         public string AdditionalInfo  { get; set; }
         public DateTime DateOrderCompleted { get; set; }
         public int CustomerId { get; set; }

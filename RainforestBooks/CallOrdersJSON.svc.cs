@@ -30,7 +30,7 @@ namespace RainforestBooks
                 customerOrders = (from c in db.Customers
                                  join o in db.Orders
                                  on c.CustomerId equals o.CustomerId
-                                 select new CustomerOrderProduct { ThisCustomer = c, ThisOrder = o, TheseOrderProducts=null}).ToList();
+                                 select new CustomerOrderProduct { ThisCustomer = c, ThisOrder = o}).ToList();
                 
                 foreach(CustomerOrderProduct item in customerOrders)
                 {
