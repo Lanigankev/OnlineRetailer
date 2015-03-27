@@ -252,6 +252,7 @@ namespace RainforestBooks
             if (UserSession.ReturnUserId() != -1)
             {
                 ShoppingCart.Instance.AddItem(ProductId);
+                Response.Write("<script language='javascript'>alert('Item added to cart');</script>");
             }
             else
             {

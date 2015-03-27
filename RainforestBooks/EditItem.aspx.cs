@@ -10,6 +10,14 @@ namespace RainforestBooks
 {
     public partial class EditItem : System.Web.UI.Page
     {
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (AdminSession.IsAdminSession() != true)
+            {
+                Response.Redirect("Default.aspx");
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -95,6 +103,7 @@ namespace RainforestBooks
                 _db.SaveChanges();
 
                 ClearForm();
+                Response.Write("<script language='javascript'>alert('Item edited');</script>");
             }
 
         }
@@ -104,6 +113,7 @@ namespace RainforestBooks
             txtStock.Text = string.Empty;
             txtCost.Text = string.Empty;
             txtDescription.Text = string.Empty;
+            imgItem.ImageUrl = string.Empty;
             }
 
        protected void btnSearch_Click(object sender, EventArgs e)
@@ -112,12 +122,18 @@ namespace RainforestBooks
 
            Product prod = (from p in _db.Products
                                where p.ProductTitle == txtName.Text
-                               select p).First();
-
-           txtDescription.Text = prod.ProductDescription;
-           imgItem.ImageUrl = "~/Content/BookCovers/" + prod.ProductImageRef;           
-           txtStock.Text = prod.InStock.ToString();
-           txtCost.Text = prod.Cost.ToString();
+                               select p).FirstOrDefault();
+           if (prod != null)
+           {
+               txtDescription.Text = prod.ProductDescription;
+               imgItem.ImageUrl = "~/Content/BookCovers/" + prod.ProductImageRef;
+               txtStock.Text = prod.InStock.ToString();
+               txtCost.Text = prod.Cost.ToString();
+           }
+           else
+           {
+               Response.Write("<script language='javascript'>alert('No Item found of that name');</script>");
+           }
        }
 
        protected void btnSubmit_Click(object sender, EventArgs e)

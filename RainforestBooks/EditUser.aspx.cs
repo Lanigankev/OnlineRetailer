@@ -11,7 +11,8 @@ namespace RainforestBooks
 {
     public partial class EditUser : System.Web.UI.Page
     {
-        public Customer CurrentUser { get; set; }
+       
+
         protected void Page_PreInit(object sender, EventArgs e)
         {
             if (UserSession.ReturnUserId() == -1)
@@ -34,7 +35,7 @@ namespace RainforestBooks
                                      where c.CustomerId == custId
                                      select c).FirstOrDefault();
 
-                    CurrentUser = user;
+                    
 
                     txtFName.Text = user.FirstName;
                     txtLName.Text = user.LastName;
@@ -47,16 +48,6 @@ namespace RainforestBooks
                     txtUserName.Text = user.UserName;
                 }
             }
-        }
-
-        protected void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtUserName_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
        
@@ -72,8 +63,6 @@ namespace RainforestBooks
             bool address2Empty = true;
             bool cityEmpty = true;
             bool countryEmpty = true;
-            //bool oldpasswordEmpty = true;
-            //bool passwordExists = true;
             bool newpasswordEmpty = true;
             bool confirmEmpty = true;
 
@@ -88,8 +77,6 @@ namespace RainforestBooks
             address2Empty = string.IsNullOrEmpty(txtAddress2.Text);
             cityEmpty = string.IsNullOrEmpty(txtCity.Text);
             countryEmpty = string.IsNullOrEmpty(txtCountry.Text);
-            //oldpasswordEmpty = string.IsNullOrEmpty(txtOldPassword.Text);
-            //passwordExists = _db.Customers.Any(customer => customer.UserPassword == txtOldPassword.Text);
             newpasswordEmpty = string.IsNullOrEmpty(txtNewPassword.Text);
             confirmEmpty = string.IsNullOrEmpty(txtConfirm.Text);
 
@@ -153,18 +140,7 @@ namespace RainforestBooks
                 lblPhone.Visible = false;
             }
 
-            //if (chckChange.Checked && oldpasswordEmpty) 
-            //{
-            //    lblOldPasswordWarning.Visible = true;
-            //}
-            //else if (chckChange.Checked && !passwordExists)
-            //{
-            //    lblOldPasswordWarning.Visible = true;
-            //}
-            //else 
-            //{
-            //    lblOldPasswordWarning.Visible = false;
-            //}
+            
             if (chckChange.Checked && (txtConfirm.Text != txtNewPassword.Text || confirmEmpty || newpasswordEmpty))
             {
                 lblConfirmWarning.Visible = true;
@@ -197,7 +173,7 @@ namespace RainforestBooks
 
                         _db.SaveChanges();
 
-                        ClearForm();
+                       // ClearForm();
                     }
                     else if (!chckChange.Checked)
                     {
@@ -218,8 +194,9 @@ namespace RainforestBooks
 
                         _db.SaveChanges();
 
-                        ClearForm();
+                        //ClearForm();
                     }
+                    Response.Write("<script language='javascript'>alert('Details changed');</script>");
                 }
             }
            
@@ -244,32 +221,6 @@ namespace RainforestBooks
         {
             EditDetails();
         }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            //using (var _db = new Context())
-            //{
-
-            //    Customer user = (from c in _db.Customers
-            //                     where c.UserName == txtUserName.Text
-            //                     select c).FirstOrDefault();
-
-            //    CurrentUser = user;
-
-            //    txtFName.Text = user.FirstName;
-            //    txtLName.Text = user.LastName;
-            //    txtCountry.Text = user.Country;
-            //    txtCity.Text = user.City;
-            //    txtAddress1.Text = user.Address1;
-            //    txtAddress2.Text = user.Address2;
-            //    txtEmail.Text = user.Email;
-            //    txtPhone.Text = user.Phone;
-            //    txtUserName.Text = user.UserName;
-            //}
-            //txtPassword.Text = customer.UserPassword.ToString();
-        }
-
-
 
         protected void chckChange_CheckedChanged1(object sender, EventArgs e)
         {
