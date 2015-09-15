@@ -1,0 +1,134 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RainforestBooks.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang ="en" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href ="Stylesheets/reset.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+    <link href="Stylesheets/Stylesheet.css" rel="stylesheet" />
+    
+ 
+
+</head>
+<body id="bg">
+    <form id="form1" runat="server">
+    <!--  <asp:ScriptManager ID="sm" runat="server" ></asp:ScriptManager>-->
+      
+       
+    <div class="container">
+            
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default mynav transparancy">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="Default.aspx">Rainforest Books</a>
+          </div>
+            
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="Default.aspx">Home</a></li>
+              <li><a href="About.aspx">About</a></li>
+              <li class="dropdown">
+                <a href="Search.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories<span class="caret"></span></a>
+                <ul class="dropdown-menu transparancy" role="menu">
+                  <li class="dropdown-header">Book Genres</li>
+                  <li><a href="Search.aspx?search=action">Action</a></li>
+                  <li><a href="Search.aspx?search=adventure">Adventure</a></li>
+                  <li><a href="Search.aspx?search=romance">Romance</a></li>
+                    <li><a href="Search.aspx?search=science">Science</a></li>
+                    <li class="divider"></li>
+                  <li class="dropdown-header">Other Products</li>
+                    <%--<li><a href="Search.aspx?search=NA">Book Accessories</a></li>--%>
+                </ul>
+              </li>
+            </ul>
+              
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+              <li><a href="Register.aspx">Register</a></li>
+              <li><a href="Login.aspx">Login</a></li>    
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <!-- Main component for a primary marketing message or call to action -->
+        <div class="panel panel-default transparancy">
+             <div class="panel-body">
+                 <div class="input-group">
+                    
+                    <asp:TextBox CssClass="form-control" placeholder="Search for..." ID="txtSearch" runat="server"></asp:TextBox>
+                 <!-- 
+                     Legacy code for an attempted auto complete function for the search bar
+                     
+                       <ajaxtool:autocompleteextender 
+                 ID="Autocompleter" 
+                 TargetControlID="txtSearch"
+                 ServicePath="~/AutoComplete.asmx" 
+                        ContextKey="a"
+                 ServiceMethod="CompleteSearch"  
+                MinimumPrefixLength="1" 
+            CompletionInterval="500" 
+                runat="server">
+                    </ajaxtool:autocompleteextender>-->
+                    <span class="input-group-btn">
+                    <asp:Button CssClass="btn btn-default" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search"/>
+                        </span>
+                        </div>
+            </div>
+        </div>
+
+     <!-- /container -->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+        
+            <footer class="well well-lg transparancy">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p>Rainforest Books</p>
+                        <p>About</p>
+                        <p>Products</p>
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-1">
+                        <a href="http://www.facebook.com"><img class="icon img-responsive img-circle" src="Images/facebookicon.png" /></a></div>
+                    <div class="col-md-2">
+                        <a href="http://www.twitter.com"><img class="icon img-responsive img-circle" src="Images/twittericon.png" /></a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        
+                    </div>
+                    <div class="col-md-3">
+                        <p>&copy;Rainforest Books</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+   
+    </form>
+    
+</body>
+</html>
