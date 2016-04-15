@@ -29,27 +29,20 @@ namespace RainforestBooks
             lblSearchTerm.Text = Request.QueryString["search"];
             
         }
-        public IQueryable<Product> SearchMethod([QueryString("search")] string searchTerm)
+        public List<Product> SearchMethod([QueryString("search")] string searchTerm)
         {
             if (searchTerm != string.Empty)
             {
                 using (var db = new RainforestBooks.Models.Context())
                 {
-                    try
-                    {
-                        IQueryable<Product> query = from p in db.Products
+                    
+                        List<Product> query = (from p in db.Products
                                                     where p.ProductTitle.Contains(searchTerm)
                                                     || p.Genre.Contains(searchTerm)
-                                                    select p;
+                                                    select p).ToList();
 
                         return query;
-                    }
-                    catch (Exception ex)
-                    {
-                        return null;
-                        throw ex;
-                        
-                    }
+                                        
                 }
             }
             else
@@ -74,9 +67,13 @@ namespace RainforestBooks
                 catch(Exception ex)
                 { throw ex; }
             }
-            else if (AdminSession.IsAdminSession() != true && UserSession.ReturnUserId() == -1)
+            else if (AdminSession.IsAdminSession() == true)
             {
                 Response.Redirect("EditItem.aspx");
+            }
+            else if (UserSession.ReturnUserId() == -1)
+            {
+                Response.Redirect("Login.aspx");
             }
         }
         

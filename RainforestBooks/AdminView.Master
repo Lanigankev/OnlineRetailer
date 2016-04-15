@@ -85,9 +85,13 @@
             <footer class="well well-lg transparancy">
                 <div class="row">
                     <div class="col-md-3">
-                        <p>Rainforest Books</p>
-                        <p>About</p>
-                        <p>Products</p>
+                         <ul>
+                    <li><a href="Default.aspx">Home</a></li>
+                    <li><a href="About.aspx">About</a></li>
+                    <li><a href="Register.aspx">Register</a></li>
+                    <li><a href="Login.aspx">Login</a></li>
+                     <li><a href="SiteMap.aspx">Site Map</a></li>       
+                </ul>
                     </div>
                     <div class="col-md-3">
                         
@@ -111,13 +115,7 @@
             </footer>
         </div>
         
-            <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+ 
    
     </form>
     
